@@ -91,7 +91,7 @@ let resList = [
         "Chinese",
         "Asian"
       ],
-      "avgRating": 4.5,
+      "avgRating": 3.5,
       "parentId": "281796",
       "avgRatingString": "4.5",
       "totalRatingsString": "1.8K+",
@@ -118,7 +118,7 @@ let resList = [
         "South Indian",
         "Continental"
       ],
-      "avgRating": 4.4,
+      "avgRating": 3.4,
       "parentId": "281797",
       "avgRatingString": "4.4",
       "totalRatingsString": "1.2K+",
@@ -145,7 +145,7 @@ let resList = [
         "Burgers",
         "Desserts"
       ],
-      "avgRating": 4.6,
+      "avgRating": 3.6,
       "parentId": "281798",
       "avgRatingString": "4.6",
       "totalRatingsString": "1.5K+",
@@ -199,7 +199,7 @@ let resList = [
         "South Indian",
         "Biryani"
       ],
-      "avgRating": 4.1,
+      "avgRating": 3.1,
       "parentId": "281800",
       "avgRatingString": "4.1",
       "totalRatingsString": "1.3K+",
@@ -226,7 +226,7 @@ let resList = [
         "Sweets",
         "North Indian"
       ],
-      "avgRating": 4.0,
+      "avgRating": 3.0,
       "parentId": "281801",
       "avgRatingString": "4.0",
       "totalRatingsString": "1K+",
@@ -253,7 +253,7 @@ let resList = [
         "Chinese",
         "Fast Food"
       ],
-      "avgRating": 4.3,
+      "avgRating": 3.3,
       "parentId": "281802",
       "avgRatingString": "4.3",
       "totalRatingsString": "1.1K+",
@@ -276,7 +276,7 @@ let resList = [
         "North Indian",
         "Hyderabadi"
       ],
-      "avgRating": 4.4,
+      "avgRating": 3.4,
       "parentId": "281803",
       "avgRatingString": "4.4",
       "totalRatingsString": "2K+",
@@ -303,7 +303,7 @@ let resList = [
         "South Indian",
         "Biryani"
       ],
-      "avgRating": 4.1,
+      "avgRating": 3.1,
       "parentId": "281804",
       "avgRatingString": "4.1",
       "totalRatingsString": "1.5K+",
@@ -330,7 +330,7 @@ let resList = [
         "American",
         "Tex-Mex"
       ],
-      "avgRating": 4.7,
+      "avgRating": 3.7,
       "parentId": "281805",
       "avgRatingString": "4.7",
       "totalRatingsString": "1.8K+",
@@ -357,7 +357,7 @@ let resList = [
         "North Indian",
         "Chinese"
       ],
-      "avgRating": 4.5,
+      "avgRating": 3.5,
       "parentId": "281806",
       "avgRatingString": "4.5",
       "totalRatingsString": "1.3K+",
@@ -384,7 +384,7 @@ let resList = [
         "Italian",
         "Fast Food"
       ],
-      "avgRating": 4.2,
+      "avgRating": 3.2,
       "parentId": "281807",
       "avgRatingString": "4.2",
       "totalRatingsString": "1K+",
@@ -411,7 +411,7 @@ let resList = [
         "Fast Food",
         "Beverages"
       ],
-      "avgRating": 4.6,
+      "avgRating": 3.6,
       "parentId": "281808",
       "avgRatingString": "4.6",
       "totalRatingsString": "1.6K+",
@@ -438,7 +438,7 @@ let resList = [
         "Portuguese",
         "Grill"
       ],
-      "avgRating": 4.5,
+      "avgRating": 3.5,
       "parentId": "281809",
       "avgRatingString": "4.5",
       "totalRatingsString": "1.4K+",
@@ -465,7 +465,7 @@ let resList = [
         "Mughlai",
         "Kebabs"
       ],
-      "avgRating": 4.7,
+      "avgRating": 3.7,
       "parentId": "281810",
       "avgRatingString": "4.7",
       "totalRatingsString": "1.9K+",
