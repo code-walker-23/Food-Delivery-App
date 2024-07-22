@@ -7,8 +7,9 @@ import { useEffect } from "react";
 
 
 const Body = () => {
-const arr = useState([]);
+const arr = useState(resList); // mock data will render first time. and then it will call the fetch data.
 let [resFilter, setListOfRestaurant] = arr;
+
 /* 
 
 This Callback function in useEffect is called when the component is mounted or rendered for the first time.  
@@ -30,6 +31,8 @@ It will keep the callback function and called when the component is rendered.
 ?.infoWithStyle?.restaurants);
     
   };
+
+
 
   /* 
   Local state varibale.
@@ -57,7 +60,7 @@ It will keep the callback function and called when the component is rendered.
           } */
           //  find out the div update the UI.
           setListOfRestaurant(
-            resFilter.filter((res) => res.info.avgRating > 4)
+            resFilter.filter((res) => res.info.avgRating > 4.4)
           );
         }}
       >
