@@ -1,70 +1,127 @@
+import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
-import { useEffect } from "react";
-
-
+import { Shimmer } from "./shimmerUI";
 
 
 const Body = () => {
-const arr = useState(resList); // mock data will render first time. and then it will call the fetch data.
-let [resFilter, setListOfRestaurant] = arr;
+  const [resFilter, setListOfRestaurant] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-/* 
-
-This Callback function in useEffect is called when the component is mounted or rendered for the first time.  
-It will keep the callback function and called when the component is rendered.
-
-*/
   useEffect(() => {
-    fectchData(); // our browser will block the request because of CORS policy.
-  },[]);
+    fetchData(); // our browser will block the request because of CORS policy.
+  }, []);
 
   console.log("Body Component is Rendered!");
 
-  const fectchData = async () => {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
 
     const json = await data.json();
     console.log(json);
-    setListOfRestaurant(json.data.cards[1]?.card?.card?.gridElements
-?.infoWithStyle?.restaurants);
-    
+    setListOfRestaurant(
+      json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setLoading(false);
   };
 
-
-
-  /* 
-  Local state varibale.
-  Array Destructuring.
-  let [resFilter,setListOfRestaurant] = useState(resList); 
-
-  const arr = useState(resList);
-  const resFilter = arr[0]; // you can use const or let
-  const setListOfRestaurant = arr[1];// you can use const or let 
-  
-  const arr = useState(resList);
-  let [resFilter,setListOfRestaurant] = arr;
-
-  */
-
- 
   return (
     <div className="body">
       <button
         className="filter-btn"
         onClick={() => {
-          /*  resFilter = resFilter.filter((res) =>(res.info.avgRating > 4));
-          for(let i = 0; i < resFilter.length; i++){
-            console.log(resFilter[i].info.avgRating);
-          } */
           //  find out the div update the UI.
           setListOfRestaurant(
             resFilter.filter((res) => res.info.avgRating > 4.4)
           );
         }}
       >
-        Top Rated Reastaurants
+        Top Rated Restaurants
+      </button>
+      {loading ? (
+        <Shimmer />
+      ) : (
+        <div className="restaurant-container">
+          {resFilter.map((restaurant, index) => (
+            <RestaurantCard key={index} resData={restaurant} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Body;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import { useState, useEffect } from "react";
+import RestaurantCard from "./RestaurantCard";
+import { TailSpin } from "react-loader-spinner"; // Import the spinner
+
+const Body = () => {
+  const [resFilter, setListOfRestaurant] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log("Body Component is Rendered!");
+
+  const fetchData = async () => {
+    try {
+      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const json = await data.json();
+      console.log(json);
+      setListOfRestaurant(json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setLoading(false); // Set loading to false after data is fetched
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false); // Set loading to false even if there is an error
+    }
+  };
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <TailSpin color="#00BFFF" height={80} width={80} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="body">
+      <button
+        className="filter-btn"
+        onClick={() => {
+          setListOfRestaurant(
+            resFilter.filter((res) => res.info.avgRating > 4.4)
+          );
+        }}
+      >
+        Top Rated Restaurants
       </button>
       <div className="restaurant-container">
         {resFilter.map((restaurant, index) => (
@@ -76,3 +133,4 @@ It will keep the callback function and called when the component is rendered.
 };
 
 export default Body;
+ */

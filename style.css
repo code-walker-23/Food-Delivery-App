@@ -68,6 +68,27 @@
   transform: scale(1.05); /* Slightly enlarge the text */
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .logo-container {
+    margin-bottom: 10px;
+  }
+
+  .nav-items ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-items li {
+    margin: 10px 0;
+  }
+}
 
 .restaurant-container {
   background-color: #fafafa; /* Light background color for contrast */
@@ -118,14 +139,16 @@
 }
 
 .res-name {
-  font-size: 18px; /* Larger font size for the name */
+  font-family: 'Roboto', sans-serif; /* Change font to Roboto */
+  font-size: 20px; /* Larger font size */
   font-weight: 700; /* Bolder text for emphasis */
   margin: 8px 0;
   color: #333; /* Dark color for text */
 }
 
 .res-rating {
-  font-size: 16px; /* Slightly larger font size for rating */
+  font-family: 'Open Sans', sans-serif; /* Change font to Open Sans */
+  font-size: 16px; /* Slightly larger font size */
   color: #ffb74d; /* Warm color for rating */
   margin: 4px 0;
   font-weight: 600; /* Bolder rating text */
@@ -135,28 +158,45 @@
 .res-cuisines,
 .res-cost-for-two,
 .res-locality {
-  font-size: 14px; /* Slightly larger font size for details */
+  font-family: 'Open Sans', sans-serif; /* Change font to Open Sans */
+  font-size: 15px; /* Slightly larger font size */
   color: #666; /* Slightly lighter color for text */
   margin: 2px 0;
 }
 
 .res-delivery-time {
   color: #4caf50; /* Green for delivery time */
-  font-weight: 500; /* Slightly bolder text */
+  font-weight: 600; /* Slightly bolder text */
 }
 
 .res-cuisines {
   font-weight: 600; /* Bolder text */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
+
 
 .res-cost-for-two {
   color: #999; /* Lighter color for cost */
-  font-weight: 500; /* Slightly bolder text */
+  font-weight: 600; /* Slightly bolder text */
 }
 
 .res-locality {
   color: #777; /* Slightly darker color for better contrast */
-  font-weight: 500; /* Slightly bolder text */
+  font-weight: 600; /* Slightly bolder text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .restaurant-container {
+    justify-content: center;
+  }
+
+  .restaurant-card {
+    width: 90%;
+  }
 }
 
 .filter-btn {
@@ -184,7 +224,6 @@
   transform: scale(1); /* Return to original size */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow when clicked */
 }
-
 
 /* Footer */
 
@@ -254,3 +293,91 @@
 .footer-bottom p {
   margin: 0;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Shimmer */
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.shimmer-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.shimmer-card {
+  width: 280px;
+  height: 350px;
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  display: inline-block;
+  position: relative;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+}
+
+.shimmer-card-image {
+  height: 160px;
+  background: #e0e0e0;
+  margin-bottom: 12px;
+}
+
+.shimmer-card-details {
+  padding: 12px;
+}
+
+.shimmer-line {
+  height: 16px;
+  background: #e0e0e0;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.shimmer-line.short {
+  width: 60%;
+}
+
+.shimmer-line.medium {
+  width: 80%;
+}
+
+.shimmer-line.long {
+  width: 100%;
+}
+
+.star {
+  color: #ffb74d; /* Star color */
+  margin-right: 2px; /* Spacing between stars */
+}
+
+.full-star, .half-star, .empty-star {
+  font-size: 16px; /* Adjust the star size */
+}
+
+

@@ -15,7 +15,6 @@ const AppLayout = () => {
   );
 };
 
-
 const Footer = () => {};
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

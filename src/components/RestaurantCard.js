@@ -1,3 +1,5 @@
+import { renderStars } from './star';
+
 const RestaurantCard = (props) => {
   const { resData } = props;
   const { name, cuisines, avgRating, locality, costForTwo } = resData?.info;
@@ -14,8 +16,8 @@ const RestaurantCard = (props) => {
       </div>
       <div className="restaurant-details">
         <h3 className="res-name">{name}</h3>
-        <h4 className="res-rating">{avgRating} star</h4>
-        <h4 className="res-delivery-time">{deliveryTime} mins</h4>
+        <h4 className="res-rating">{renderStars(avgRating)}</h4>
+        <h4 className="res-delivery-time">Delivery in {deliveryTime} mins</h4>
         <h4 className="res-cuisines">{cuisines.join(", ")}</h4>
         <h4 className="res-cost-for-two">Cost for Two: {costForTwo}</h4>
         <h4 className="res-locality">{locality}</h4>
