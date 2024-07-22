@@ -1,8 +1,10 @@
-import { renderStars } from './star';
+import { renderStars } from "./star";
+import { IMAGE_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const { name, cuisines, avgRating, locality, costForTwo } = resData?.info;
+  const { name, cuisines, avgRating, locality, costForTwo, cloudinaryImageId } =
+    resData?.info;
   const { deliveryTime } = resData?.info?.sla;
 
   return (
@@ -11,7 +13,7 @@ const RestaurantCard = (props) => {
         <img
           className="res-image"
           alt="Restaurant"
-          src="https://lh5.googleusercontent.com/p/AF1QipP0eUAms3T6iZD_d5bf8ivyJVzVKp9d4gZALh2S=w178-h178-n-k-no"
+          src={IMAGE_URL + cloudinaryImageId}
         />
       </div>
       <div className="restaurant-details">

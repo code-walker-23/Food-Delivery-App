@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-/* Container for the entire header */
+/* Basic styling for the header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -12,6 +12,7 @@
   color: #fff; /* White text color */
   border-bottom: 1px solid #ddd; /* Thinner border at the bottom */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Elegant, modern font family */
+  position: relative;
 }
 
 /* Logo container styling */
@@ -22,6 +23,7 @@
   padding: 10px 20px; /* Padding around the logo */
   border-radius: 8px; /* Rounded corners */
   transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
 }
 
 /* General text-based logo styling */
@@ -35,7 +37,7 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover effects for the text-based logo container */
+/* Hover effects for the logo container */
 .logo-container:hover {
   background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
   transform: scale(1.05); /* Slightly enlarge the container */
@@ -44,6 +46,30 @@
 /* Hover effects for the text-based logo */
 .logo-container:hover .logo-text {
   color: #333; /* Dark text color on hover */
+  transform: translateY(-5px); /* Move the text up on hover */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Animation for more dynamic movement */
+.logo-text-animation {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo-container:hover .logo-text-animation {
+  animation: moveText 0.5s ease forwards; /* Apply animation on hover */
+}
+
+/* Keyframes for moving text */
+@keyframes moveText {
+  0% {
+    transform: translateY(0); /* Start position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up */
+  }
+  100% {
+    transform: translateY(0); /* Return to original position */
+  }
 }
 
 /* Styling for the navigation items */
@@ -89,6 +115,8 @@
     margin: 10px 0;
   }
 }
+
+
 
 .restaurant-container {
   background-color: #fafafa; /* Light background color for contrast */
@@ -227,71 +255,126 @@
 
 /* Footer */
 
+/* Basic styling for the footer */
 .footer {
-  background-color: #333;
+  background: linear-gradient(135deg, #333, #444); /* Gradient background for depth */
   color: #fff;
-  padding: 20px 10px; /* Reduced padding */
+  padding: 40px 20px; /* Spacious padding for better layout */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Container for the footer sections */
 .footer-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  max-width: 1200px; /* Limit max-width for readability */
+  margin: 0 auto; /* Center align the container */
 }
 
+/* Styling for each footer section */
 .footer-section {
   flex: 1;
-  margin: 10px;
-  min-width: 150px; /* Reduced minimum width */
+  margin: 15px;
+  min-width: 250px; /* Increased minimum width for better layout */
 }
 
+/* Styling for footer headings */
 .footer-heading {
-  font-size: 16px; /* Reduced font size */
-  margin-bottom: 8px; /* Reduced margin */
+  font-size: 18px; /* Larger font size for headings */
+  margin-bottom: 12px; /* Increased margin for spacing */
   color: #ff7043; /* Accent color */
+  border-bottom: 2px solid #ff7043; /* Underline effect */
+  padding-bottom: 8px; /* Padding below the heading */
+  position: relative;
 }
 
+/* Add a subtle animation to the heading underline */
+.footer-heading::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #ff7043;
+  transition: width 0.4s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Expand underline on heading hover */
+.footer-heading:hover::after {
+  width: 100%;
+}
+
+/* Styling for footer text */
 .footer-text {
-  font-size: 12px; /* Reduced font size */
-  line-height: 1.4; /* Adjusted line height */
+  font-size: 14px; /* Larger font size for better readability */
+  line-height: 1.6; /* Increased line height */
+  margin: 0;
 }
 
+/* List styling */
 .footer-links,
 .footer-social {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
+/* Styling for list items */
 .footer-links li,
 .footer-social li {
-  margin: 6px 0; /* Reduced margin */
+  margin: 8px 0; /* Increased margin for spacing */
 }
 
+/* Styling for links */
 .footer-links a,
 .footer-social a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
 }
 
+/* Hover effects for links */
 .footer-links a:hover,
 .footer-social a:hover {
   color: #ff7043; /* Accent color */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  transform: translateX(5px); /* Slight horizontal shift on hover */
 }
 
+/* Add a subtle underline effect on link hover */
+.footer-links a::after,
+.footer-social a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #ff7043;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+/* Expand underline on link hover */
+.footer-links a:hover::after,
+.footer-social a:hover::after {
+  width: 100%;
+}
+
+/* Bottom section styling */
 .footer-bottom {
   text-align: center;
-  margin-top: 20px; /* Reduced margin */
-  font-size: 12px; /* Reduced font size */
+  margin-top: 30px; /* Increased margin for spacing */
+  font-size: 14px; /* Larger font size */
   border-top: 1px solid #444;
-  padding-top: 10px; /* Reduced padding */
-}
-
-.footer-bottom p {
-  margin: 0;
+  padding-top: 20px; /* Increased padding */
+  color: #aaa; /* Lighter color for text */
 }
 
 /* Responsive adjustments */
@@ -302,11 +385,16 @@
   }
 
   .footer-section {
-    margin: 10px 0;
+    margin: 20px 0; /* Increased margin for better spacing on mobile */
     width: 100%;
     text-align: center;
   }
+
+  .footer-bottom {
+    margin-top: 20px; /* Reduced margin for mobile */
+  }
 }
+
 
 /* Shimmer */
 
