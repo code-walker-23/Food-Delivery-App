@@ -1,16 +1,18 @@
 /* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
+/* Basic styling for the header */
 /* Basic styling for the header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px; /* Adjusted padding for a balanced look */
+  padding: 10px 20px; /* Reduced padding for a smaller header */
   background-color: #333; /* Dark background color */
   color: #fff; /* White text color */
-  border-bottom: 1px solid #ddd; /* Thinner border at the bottom */
+  border-bottom: 2px solid #444; /* Slightly darker border at the bottom */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Elegant, modern font family */
   position: relative;
 }
@@ -20,15 +22,15 @@
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background for logo container */
-  padding: 10px 20px; /* Padding around the logo */
-  border-radius: 8px; /* Rounded corners */
+  padding: 8px 16px; /* Reduced padding around the logo */
+  border-radius: 8px; /* Slightly rounded corners */
   transition: background 0.3s ease, transform 0.3s ease;
   position: relative;
 }
 
 /* General text-based logo styling */
 .logo-text {
-  font-size: 28px; /* Larger font size for better visibility */
+  font-size: 24px; /* Smaller font size for a compact look */
   font-weight: 700;
   color: #fff; /* White text color */
   text-transform: uppercase;
@@ -81,17 +83,70 @@
 }
 
 .nav-items li {
-  margin: 0 15px;
-  font-size: 18px; /* Larger font size for navigation items */
+  margin: 0 10px; /* Reduced margin for a compact look */
+  font-size: 16px; /* Slightly smaller font size */
   font-weight: 500;
   color: #fff; /* Default text color */
   cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and hover effects */
+  padding: 8px 16px; /* Reduced padding to match login button */
+  border-radius: 20px; /* Rounded corners */
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
-.nav-items li:hover {
-  color: #f57c00; /* Color change on hover to match logo hover */
-  transform: scale(1.05); /* Slightly enlarge the text */
+.nav-items li a {
+  color: #fff; /* White text color */
+  text-decoration: none; /* Remove underline */
+}
+
+.nav-items li:hover,
+.nav-items li a:hover {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+}
+
+/* Login button styling */
+.login-button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  color: #fff; /* White text color */
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  font-size: 14px; /* Slightly smaller font size */
+  font-weight: 700; /* Bold text */
+  padding: 8px 16px; /* Reduced padding for a compact button */
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: inline-block;
+}
+
+/* Hover effect for the login button */
+.login-button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+}
+
+/* Focus effect for the login button */
+.login-button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 4px rgba(255, 126, 95, 0.3); /* Custom focus outline */
+}
+
+/* Active effect for the login button */
+.login-button:active {
+  transform: translateY(1px); /* Slight push effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slightly darker shadow on active */
+}
+
+/* Disabled state for the login button */
+.login-button:disabled {
+  background: #ddd; /* Grey background for disabled state */
+  color: #999; /* Light grey text for disabled state */
+  cursor: not-allowed; /* Change cursor to indicate non-interactive state */
+  box-shadow: none; /* Remove shadow */
+  transform: none; /* Remove transformations */
 }
 
 /* Responsive adjustments */
@@ -99,11 +154,11 @@
   .header {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px 20px;
+    padding: 8px 16px; /* Reduced padding */
   }
 
   .logo-container {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .nav-items ul {
@@ -112,9 +167,11 @@
   }
 
   .nav-items li {
-    margin: 10px 0;
+    margin: 8px 0; /* Reduced margin */
   }
 }
+
+
 
 
 
@@ -152,18 +209,33 @@
   width: 100%;
   height: 160px; /* Reduced height */
   overflow: hidden;
+  transition: height 0.3s ease; /* Smooth transition for height */
 }
 
 .res-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease; /* Smooth transition for image scale */
+}
+
+.restaurant-card:hover .restaurant-image {
+  height: 200px; /* Increase height on hover */
+}
+
+.restaurant-card:hover .res-image {
+  transform: scale(1.05); /* Slightly enlarge the image on hover */
 }
 
 .restaurant-details {
   padding: 12px; /* Reduced padding */
   display: flex;
   flex-direction: column;
+  transition: padding 0.3s ease; /* Smooth transition for padding */
+}
+
+.restaurant-card:hover .restaurant-details {
+  padding: 16px; /* Increase padding on hover */
 }
 
 .res-name {
@@ -204,8 +276,6 @@
   white-space: nowrap;
 }
 
-
-
 .res-cost-for-two {
   color: #999; /* Lighter color for cost */
   font-weight: 600; /* Slightly bolder text */
@@ -227,39 +297,87 @@
   }
 }
 
+/* Container for buttons */
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px; /* Spacing above the buttons */
+  margin-bottom: 20px; /* Spacing below the buttons */
+}
+
+/* Styling for the filter button */
 .filter-btn {
-  margin: 10px;
+  margin-right: 10px; /* Space between filter and search button */
   cursor: pointer;
-  padding: 10px 20px; /* Adds padding for a larger clickable area */
-  font-size: 16px; /* Adjust font size */
-  font-weight: 500; /* Slightly bolder text */
-  border: none; /* Remove default border */
-  border-radius: 8px; /* Rounded corners */
-  background: linear-gradient(135deg, #ff6f61, #d64f4f); /* Gradient background */
-  color: #fff; /* White text color */
-  text-transform: uppercase; /* Uppercase text */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .filter-btn:hover {
-  background: linear-gradient(135deg, #d64f4f, #ff6f61); /* Reverse gradient on hover */
-  transform: scale(1.05); /* Slightly enlarge the button */
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  transform: scale(1.05);
 }
 
 .filter-btn:active {
-  background: #e64a19; /* Solid color when clicked */
-  transform: scale(1); /* Return to original size */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow when clicked */
+  background: #e64a19;
+  transform: scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer */
+/* Styling for the search button container */
+.search-btn {
+  display: flex;
+  align-items: center;
+}
 
+/* Styling for the search input */
+.search-btn input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+}
+
+/* Styling for the search button */
+.search-button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border: none;
+  border-radius: 0 8px 8px 0;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  transform: scale(1.05);
+}
+
+.search-button:active {
+  background: #e64a19;
+  transform: scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Footer */
 /* Basic styling for the footer */
 .footer {
   background: linear-gradient(135deg, #333, #444); /* Gradient background for depth */
   color: #fff;
-  padding: 40px 20px; /* Spacious padding for better layout */
+  padding: 20px 10px; /* Smaller padding for a compact layout */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
   overflow: hidden;
@@ -271,24 +389,24 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1200px; /* Limit max-width for readability */
+  max-width: 1000px; /* Limit max-width for readability */
   margin: 0 auto; /* Center align the container */
 }
 
 /* Styling for each footer section */
 .footer-section {
   flex: 1;
-  margin: 15px;
-  min-width: 250px; /* Increased minimum width for better layout */
+  margin: 10px;
+  min-width: 200px; /* Smaller minimum width for better layout */
 }
 
 /* Styling for footer headings */
 .footer-heading {
-  font-size: 18px; /* Larger font size for headings */
-  margin-bottom: 12px; /* Increased margin for spacing */
+  font-size: 16px; /* Smaller font size for headings */
+  margin-bottom: 8px; /* Reduced margin for spacing */
   color: #ff7043; /* Accent color */
   border-bottom: 2px solid #ff7043; /* Underline effect */
-  padding-bottom: 8px; /* Padding below the heading */
+  padding-bottom: 5px; /* Padding below the heading */
   position: relative;
 }
 
@@ -299,7 +417,7 @@
   width: 0;
   height: 2px;
   background: #ff7043;
-  transition: width 0.4s ease;
+  transition: width 0.3s ease;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -312,8 +430,8 @@
 
 /* Styling for footer text */
 .footer-text {
-  font-size: 14px; /* Larger font size for better readability */
-  line-height: 1.6; /* Increased line height */
+  font-size: 12px; /* Smaller font size for better readability */
+  line-height: 1.4; /* Reduced line height */
   margin: 0;
 }
 
@@ -328,7 +446,7 @@
 /* Styling for list items */
 .footer-links li,
 .footer-social li {
-  margin: 8px 0; /* Increased margin for spacing */
+  margin: 5px 0; /* Reduced margin for spacing */
 }
 
 /* Styling for links */
@@ -344,7 +462,7 @@
 .footer-links a:hover,
 .footer-social a:hover {
   color: #ff7043; /* Accent color */
-  transform: translateX(5px); /* Slight horizontal shift on hover */
+  transform: scale(1.05); /* Slightly enlarge the text on hover */
 }
 
 /* Add a subtle underline effect on link hover */
@@ -357,7 +475,7 @@
   background: #ff7043;
   transition: width 0.3s ease;
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
 }
 
@@ -370,10 +488,10 @@
 /* Bottom section styling */
 .footer-bottom {
   text-align: center;
-  margin-top: 30px; /* Increased margin for spacing */
-  font-size: 14px; /* Larger font size */
+  margin-top: 20px; /* Reduced margin for spacing */
+  font-size: 12px; /* Smaller font size */
   border-top: 1px solid #444;
-  padding-top: 20px; /* Increased padding */
+  padding-top: 10px; /* Reduced padding */
   color: #aaa; /* Lighter color for text */
 }
 
@@ -385,15 +503,16 @@
   }
 
   .footer-section {
-    margin: 20px 0; /* Increased margin for better spacing on mobile */
+    margin: 10px 0; /* Reduced margin for better spacing on mobile */
     width: 100%;
     text-align: center;
   }
 
   .footer-bottom {
-    margin-top: 20px; /* Reduced margin for mobile */
+    margin-top: 15px; /* Reduced margin for mobile */
   }
 }
+
 
 
 /* Shimmer */
@@ -467,5 +586,602 @@
 .full-star, .half-star, .empty-star {
   font-size: 16px; /* Adjust the star size */
 }
+
+
+/* Login */
+
+/* Login button styling */
+.login-button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  color: #fff; /* White text color */
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  font-size: 16px; /* Reasonable font size */
+  font-weight: 700; /* Bold text */
+  padding: 12px 24px; /* Adequate padding for the button */
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: inline-block;
+}
+
+/* Hover effect for the login button */
+.login-button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+}
+
+/* Focus effect for the login button */
+.login-button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 4px rgba(255, 126, 95, 0.3); /* Custom focus outline */
+}
+
+/* Active effect for the login button */
+.login-button:active {
+  transform: translateY(1px); /* Slight push effect */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Slightly darker shadow on active */
+}
+
+/* Disabled state for the login button */
+.login-button:disabled {
+  background: #ddd; /* Grey background for disabled state */
+  color: #999; /* Light grey text for disabled state */
+  cursor: not-allowed; /* Change cursor to indicate non-interactive state */
+  box-shadow: none; /* Remove shadow */
+  transform: none; /* Remove transformations */
+}
+
+.no-res {
+  font-size: 24px; /* Larger font size for visibility */
+  font-weight: 600; /* Semi-bold text */
+  color: #ff7043; /* Accent color */
+  text-align: center; /* Center align the text */
+  padding: 20px; /* Padding for spacing */
+  background: #333; /* Dark background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  margin: 20px auto; /* Center align the container with margin */
+  width: fit-content; /* Adjust width based on content */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .no-res {
+    font-size: 20px; /* Adjust font size for smaller screens */
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+/* About */
+
+/* Basic styling for the about section */
+/* General Styles */
+.about-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.about-header p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Section Styles */
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ff7e5f;
+}
+
+section p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Values List Styles */
+.about-values ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-values li {
+  margin-bottom: 20px;
+}
+
+.about-values li h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.about-values li p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Team Section Styles */
+.team-members {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  text-align: center;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover img {
+  transform: scale(1.05);
+}
+
+.team-member h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.team-member p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Contact Section Styles */
+.about-contact {
+  text-align: center;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ff7e5f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #feb47b;
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Contact */
+
+/* General Styles */
+.contact-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.contact-header p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Form Section Styles */
+.contact-form-section {
+  margin-bottom: 40px;
+}
+
+.contact-form-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ff7e5f;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  align-self: flex-start;
+  padding: 12px 24px;
+  background-color: #ff7e5f;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+  background-color: #feb47b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Contact Info Section Styles */
+.contact-info-section {
+  margin-bottom: 40px;
+}
+
+.contact-info-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ff7e5f;
+}
+
+.contact-info-section p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Map Section Styles */
+.contact-map-section {
+  margin-bottom: 40px;
+}
+
+.contact-map-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ff7e5f;
+}
+
+.map-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 10px;
+  }
+
+  .contact-header h1 {
+    font-size: 28px;
+  }
+
+  .contact-header p {
+    font-size: 16px;
+  }
+
+  .contact-form-section h2,
+  .contact-info-section h2,
+  .contact-map-section h2 {
+    font-size: 24px;
+  }
+
+  .contact-form {
+    gap: 15px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* Error Page */
+
+
+/* Basic styling for the error page */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #fbc2eb, #a6c0fe); /* Gradient background */
+  text-align: center;
+}
+
+.error-content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.error-code {
+  font-size: 120px;
+  font-weight: 700;
+  color: #ff6b6b;
+  margin: 0;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.error-message {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  margin: 10px 0;
+}
+
+.error-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.go-home-button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: pulse 1.5s infinite;
+}
+
+.go-home-button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.go-home-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 126, 95, 0.3);
+}
+
+.go-home-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Menu */
+
+
+
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.menu-heading {
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.menu-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.menu-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.menu-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 10px 0;
+}
+
+.menu-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.menu-price-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.menu-price {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4caf50;
+}
+
+.menu-rating {
+  display: flex;
+  align-items: center;
+}
+
+.fas.fa-star {
+  color: #ffb74d;
+  margin-right: 5px;
+}
+
+.empty-star {
+  color: #ddd;
+}
+
+.rating-number {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.add-to-cart-btn {
+  background-color: #ff7043;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #f4511e;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-card {
+    width: 90%;
+  }
+}
+
+
+
 
 

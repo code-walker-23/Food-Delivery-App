@@ -6,6 +6,8 @@ const RestaurantCard = (props) => {
   const { name, cuisines, avgRating, locality, costForTwo, cloudinaryImageId } =
     resData?.info;
   const { deliveryTime } = resData?.info?.sla;
+  const { link } = resData?.cta;
+  console.log(link);
 
   return (
     <div className="restaurant-card">
@@ -21,7 +23,7 @@ const RestaurantCard = (props) => {
         <h4 className="res-rating">{renderStars(avgRating)}</h4>
         <h4 className="res-delivery-time">Delivery in {deliveryTime} mins</h4>
         <h4 className="res-cuisines">{cuisines.join(", ")}</h4>
-        <h4 className="res-cost-for-two">Cost for Two: {costForTwo}</h4>
+        <h4 className="res-cost-for-two">{costForTwo}</h4>
         <h4 className="res-locality">{locality}</h4>
       </div>
     </div>
