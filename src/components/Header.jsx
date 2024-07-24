@@ -1,11 +1,10 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   // let btnName = "Login";
   // When the button is clicked, the button name should change to Logout and it will re render the whole UI again.
-  let [btnName, setBtnName] = React.useState("Login");
+  let [btnName, setBtnName] = useState("Login");
 
   // setBtnName("login"); it makes loop and not render the UI.
 
@@ -18,7 +17,7 @@ const Header = () => {
 */
 
   /* 
-  it will called only once after the first render(it will not calledon re-render).
+  it will called only once after the first render(it will not called on re-render).
   useEffect(() => {
     console.log("Rendered Header");
   },[]);
@@ -32,7 +31,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <div className="logo-text">Suman Food and Beverages</div>
+        <a href="/"><div className="logo-text">Suman Food and Beverages</div></a>
       </div>
       <div className="nav-items">
         <ul>
@@ -50,10 +49,7 @@ const Header = () => {
           <button
             className="login-button"
             onClick={() => {
-              btnName =
-                btnName === "Login"
-                  ? setBtnName("Logout")
-                  : setBtnName("Login");
+              btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
             }}
           >
             {btnName}
@@ -67,6 +63,7 @@ const Header = () => {
 export default Header;
 
 /* 
+
 
 when setBtnName is called it will re render the whole UI again. and create a new variable btnName that's wht it's work even if it's const.
 

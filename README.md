@@ -1,4 +1,3 @@
-# Namaste React 🚀
 
 # Parcel
 
@@ -20,7 +19,7 @@
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
 
-# Namaste Food
+ Food
 
 /\*\*
 

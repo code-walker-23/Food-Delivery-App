@@ -9,8 +9,9 @@ const Body = () => {
   const [resFilter, setListOfRestaurant] = useState([]);
   const [filteredReataurant, setFilteredRestaurant] = useState([]);
   const [loading, setLoading] = useState(true);
-  // whenever the state varibale changes, react triggers the reconciliation and re-render the UI.
   const [searchText, setSearchText] = useState("");
+
+  // whenever the state varibale changes, react triggers the reconciliation and re-render the UI.
 
   useEffect(() => {
     fetchData(); // our browser will block the request because of CORS policy.
@@ -20,19 +21,15 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.1766701&lng=78.00807449999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-  
-    const json = await data.json();
-    const res1 = json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    // console.log(json);
-    setListOfRestaurant(
-     res1
-    );
-    setFilteredRestaurant(
-      res1
 
-    );
+    const json = await data.json();
+    const res1 =
+      json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    // console.log(json);
+    setListOfRestaurant(res1);
+    setFilteredRestaurant(res1);
     setLoading(false);
   };
   function handleSearch() {
@@ -79,7 +76,7 @@ const Body = () => {
       {loading ? (
         <Shimmer />
       ) : filteredReataurant.length === 0 ? (
-        <div className="no-res">No Restaurant Found with {searchText}</div>
+        <div className="no-res">No Restaurant Found</div>
       ) : (
         <div className="restaurant-container">
           {filteredReataurant.map((restaurant, index) => (

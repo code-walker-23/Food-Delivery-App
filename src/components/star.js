@@ -7,7 +7,7 @@ export const renderStars = (rating) => {
   const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
 
   return (
-    <>
+    <div className="rating">
       {[...Array(fullStars)].map((_, index) => (
         <FontAwesomeIcon key={`full-${index}`} icon={faStar} className="star full-star" />
       ))}
@@ -15,6 +15,8 @@ export const renderStars = (rating) => {
       {[...Array(emptyStars)].map((_, index) => (
         <FontAwesomeIcon key={`empty-${index}`} icon={faStarOutline} className="star empty-star" />
       ))}
-    </>
+      <span className="rating-value">{rating.toFixed(1)}</span>
+    </div>
   );
 };
+

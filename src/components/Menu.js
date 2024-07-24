@@ -1,62 +1,96 @@
 import React, { useEffect, useState } from "react";
 import { Shimmer } from "./shimmerUI";
+import { IMAGE_URL } from "../utils/constants";
+import { renderStars } from "./star";
+
 const Menu = () => {
-  const[resInfo, setResInfo] = useState(null);
+  const [resInfo, setResInfo] = useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchMenu();
-  },[])
-
+  }, []);
 
   const fetchMenu = async () => {
-    const data  = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.1766701&lng=78.00807449999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=527591&catalog_qa=undefined&submitAction=ENTER"
+    );
     const json = await data.json();
     console.log(json.data);
     setResInfo(json.data);
+  };
+
+  if (resInfo === null) {
+    return <Shimmer />;
   }
-if(resInfo === null){}
+
+  const { text } = resInfo?.cards[0]?.card?.card;
+  const { itemCards } =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card;
+
+  const { cards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR;
+  console.log(cards);
+  const {
+    name,
+    city,
+    areaName,
+    avgRating,
+    cloudinaryImageId,
+    costForTwoMessage,
+    cuisines,
+    logo,
+    sla,
+    slugs,
+  } = resInfo?.cards[2]?.card?.card?.info;
+  const { deliveryTime } = sla;
+  const { totalRatingString } = slugs;
 
   return (
-    <div>
-      <h1>Menu</h1>
+    <div className="menu-container">
+      <h1 className="menu-title">{text}</h1>
+      <div className="restaurant-info">
+        <img
+          className="restaurant-logo"
+          src={IMAGE_URL + logo}
+          alt="Restaurant Logo"
+        />
+        <div className="restaurant-details">
+          <h2 className="restaurant-name">{name}</h2>
+          <h3 className="restaurant-city">{city}</h3>
+          <h4 className="restaurant-area">{areaName}</h4>
+          <div className="rating-and-delivery">
+            <div className="restaurant-rating">
+              <div className="star-rating">{renderStars(avgRating)}</div>
+            </div>
+            <h4 className="restaurant-delivery-time">
+              Delivery in {deliveryTime} mins
+            </h4>
+          </div>
+          <h4 className="restaurant-cost-for-two">{costForTwoMessage}</h4>
+          <h4 className="restaurant-cuisines">{cuisines.join(", ")}</h4>
+        </div>
+      </div>
+      <h2 className="menu-heading">Menu</h2>
+      <ul className="menu-list">
+        {itemCards.map((item, index) => (
+          <li key={index} className="menu-item">
+            <div className="menu-item-details">
+              <h4 className="menu-item-name">{item.card.info.name}</h4>
+              <p className="menu-item-description">
+                {item.card.info.description}
+              </p>
+            </div>
+            {item.card.info.imageId && (
+              <img
+                className="menu-item-image"
+                src={IMAGE_URL + item.card.info.imageId}
+                alt={item.card.info.name}
+              />
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
-
-/* const Menu = ({ menuItems }) => {
-  return (
-    <div className="menu-container">
-      <h2 className="menu-heading">Our Menu</h2>
-      <div className="menu-grid">
-        {menuItems.map((item) => (
-          <div key={item.id} className="menu-card">
-            <img src={item.image} alt={item.name} className="menu-image" />
-            <div className="menu-details">
-              <h3 className="menu-name">{item.name}</h3>
-              <p className="menu-description">{item.description}</p>
-              <div className="menu-price-rating">
-                <span className="menu-price">${item.price}</span>
-                <div className="menu-rating">
-                  {[...Array(5)].map((_, i) => (
-                    <i
-                      key={i}
-                      className={
-                        i < item.rating
-                          ? "fas fa-star filled-star"
-                          : "fas fa-star empty-star"
-                      }
-                    />
-                  ))}
-                  <span className="rating-number">{item.rating}</span>
-                </div>
-              </div>
-              <button className="add-to-cart-btn">Add to Cart</button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}; */
 
 export default Menu;
