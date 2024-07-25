@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { Shimmer } from "./shimmerUI";
+import { Link } from "react-router-dom";
 
 // useState should not declare outside the component function.
 // Never use useState inside the loop or condition.
 
 const Body = () => {
   const [resFilter, setListOfRestaurant] = useState([]);
-  const [filteredReataurant, setFilteredRestaurant] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState("");
 
@@ -75,12 +76,12 @@ const Body = () => {
 
       {loading ? (
         <Shimmer />
-      ) : filteredReataurant.length === 0 ? (
+      ) : filteredRestaurant.length === 0 ? (
         <div className="no-res">No Restaurant Found</div>
       ) : (
         <div className="restaurant-container">
-          {filteredReataurant.map((restaurant, index) => (
-            <RestaurantCard key={index} resData={restaurant} />
+          {filteredRestaurant.map((restaurant) => (
+            <Link to={"/restaurants/" + restaurant.info.id} target={"_blank"}><RestaurantCard key={restaurant.info.id} resData={restaurant} /></Link>
           ))}
         </div>
       )}
@@ -161,5 +162,9 @@ For re-render the function component we have to use useEffect and useState hooks
 Routing in react is done by react-router-dom.
 
 Routing : It is the process of determining the path of the URL and rendering the component based on the path.
+
+Behind the scene Link is using anchor tag.This is special type of anchor tag which is provided by react-router-dom.
+
+Link is wrapper over the anchor tag.
 
 */

@@ -1,10 +1,12 @@
 import { renderStars } from "./star";
 import { IMAGE_URL } from "../utils/constants";
 
+
 const RestaurantCard = (props) => {
   const { resData } = props;
   const {
     name,
+    id,
     cuisines,
     avgRating,
     locality,
@@ -17,11 +19,10 @@ const RestaurantCard = (props) => {
   const { deliveryTime } = sla;
   const { link } = resData?.cta;
   const { nextClosedTime, opened } = availability;
-  if(aggregatedDiscountInfoV3 != null)
-     console.log(aggregatedDiscountInfoV3);
+  console.log(id);
 
   return (
-    <a href={link} target="_blank">
+    
       <div className="restaurant-card">
         <div className="restaurant-image">
           <img
@@ -39,7 +40,7 @@ const RestaurantCard = (props) => {
           <h4 className="res-locality">{locality}</h4>
         </div>
       </div>
-    </a>
+    
   );
 };
 
