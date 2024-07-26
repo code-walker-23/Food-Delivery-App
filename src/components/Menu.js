@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Shimmer } from "./Shimmer";
 import { IMAGE_URL } from "../utils/constants";
-import { renderStars } from "./Star";
+import { renderStars } from "./star";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constants";
 
