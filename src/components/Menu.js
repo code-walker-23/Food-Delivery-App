@@ -9,14 +9,17 @@ const Menu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [selectedAddons, setSelectedAddons] = useState(null);
   const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     fetchMenu();
   }, []);
+
   const fetchMenu = async () => {
     const data = await fetch(MENU_API + id);
     const json = await data.json();
     setResInfo(json.data);
+    console.log(json.data);
   };
 
   if (resInfo === null) {
