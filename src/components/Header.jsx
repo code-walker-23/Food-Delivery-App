@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -25,13 +25,15 @@ const Header = () => {
 */
 
   useEffect(() => {
-    console.log("Rendered Header");
+    // console.log("Rendered Header");
   }, [btnName]); // it will called only when the btnName is updated.
 
   return (
     <div className="header">
       <div className="logo-container">
-        <a href="/"><div className="logo-text">Suman Food and Beverages</div></a>
+        <Link to="/">
+          <div className="logo-text">Suman Food and Beverages</div>
+        </Link>
       </div>
       <div className="nav-items">
         <ul>

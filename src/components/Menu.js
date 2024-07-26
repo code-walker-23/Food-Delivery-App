@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Shimmer } from "./shimmerUI";
+import { Shimmer } from "./Shimmer";
 import { IMAGE_URL } from "../utils/constants";
-import { renderStars } from "./star";
+import { renderStars } from "./Star";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constants";
 
 const Menu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [selectedAddons, setSelectedAddons] = useState(null);
-
   const { id } = useParams();
-  // console.log(id);
 
   useEffect(() => {
     fetchMenu();
   }, []);
-
   const fetchMenu = async () => {
     const data = await fetch(MENU_API + id);
     const json = await data.json();
@@ -29,7 +26,6 @@ const Menu = () => {
   const { text } = resInfo?.cards[0]?.card?.card || {};
   const { cards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR || [];
   const { carousel } = cards[1]?.card?.card || [];
-  console.log("carousel", carousel);
 
   const {
     name,
@@ -46,9 +42,6 @@ const Menu = () => {
     ratings,
   } = resInfo?.cards[2]?.card?.card?.info || {};
   const { deliveryTime } = sla || {};
-  const { totalRatingString } = slugs || {};
-  const aggregatedRating = ratings?.AGGREGATED || {};
-  const { rating, ratingCount } = aggregatedRating;
 
   const handleAddonsClick = (addons) => {
     setSelectedAddons(addons);
@@ -65,7 +58,6 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <h1 className="menu-title">{text}</h1>
       <div className="restaurant-info">
         <img
           className="restaurant-logo"
@@ -79,7 +71,6 @@ const Menu = () => {
           <div className="rating-and-delivery">
             <div className="restaurant-rating">
               <div className="star-rating">{renderStars(avgRating)}</div>
-              <span>{}</span>
             </div>
             <h4 className="restaurant-delivery-time">
               Delivery in {deliveryTime} mins
@@ -117,13 +108,6 @@ const Menu = () => {
                   <p className="carousel-item-price">
                     ₹{(value / 100).toFixed(2)}
                   </p>
-                  {attributes?.imageAttribute && (
-                    <p className="carousel-item-image-attribute">
-                      {attributes.imageAttribute === "veg"
-                        ? "🌱 Veg"
-                        : "🍖 Non-Veg"}
-                    </p>
-                  )}
                   {addons?.length > 0 && (
                     <button
                       className="carousel-item-addons-button"
@@ -172,15 +156,10 @@ const Menu = () => {
                       <h4 className="menu-item-name">{name}</h4>
                       <p className="menu-item-description">{description}</p>
                       <p className="menu-item-category">Category: {category}</p>
-                      {!inStock && (
+                      {!inStock ? (
                         <p className="menu-item-stock">Out of Stock</p>
-                      )}
-                      {attributes?.imageAttribute && (
-                        <p className="menu-item-image-attribute">
-                          {attributes.imageAttribute === "veg"
-                            ? "🌱 Veg"
-                            : "🍖 Non-Veg"}
-                        </p>
+                      ) : (
+                        "Available"
                       )}
                       <p className="menu-item-price">
                         ₹{(value / 100).toFixed(2)}
@@ -216,7 +195,7 @@ const Menu = () => {
                     <li key={choiceIndex} className="addon-choice">
                       {choice.name} - ₹
                       {isNaN(choice.price)
-                        ? 0
+                        ? "Not Available"
                         : (choice.price / 100).toFixed(2)}
                     </li>
                   ))}

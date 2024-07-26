@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -42,7 +42,7 @@ const appRouter = createBrowserRouter([
   }
 ]);
 
-console.log(appRouter); // it return the object of the router. 
+// console.log(appRouter); // it return the object of the router. 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

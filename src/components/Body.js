@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
-import { Shimmer } from "./shimmerUI";
+import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 
 // useState should not declare outside the component function.
@@ -80,8 +80,10 @@ const Body = () => {
         <div className="no-res">No Restaurant Found</div>
       ) : (
         <div className="restaurant-container">
-          {filteredRestaurant.map((restaurant) => (
-            <Link to={"/restaurants/" + restaurant.info.id} target={"_blank"}><RestaurantCard key={restaurant.info.id} resData={restaurant} /></Link>
+          {filteredRestaurant.map((restaurant, index) => (
+            <Link to={"/restaurants/" + restaurant.info.id} target={"_blank"}>
+              <RestaurantCard key={index} resData={restaurant} />
+            </Link>
           ))}
         </div>
       )}
