@@ -1,4 +1,4 @@
-import { renderStars } from "./Star";
+import { renderStars } from "./star";
 import { IMAGE_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
