@@ -1039,204 +1039,220 @@ section p {
 }
 
 /* General Styles */
+/* Main Menu Container */
 .menu-container {
   font-family: "Arial", sans-serif;
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: #f9f9f9;
 }
 
+/* Menu Title */
 .menu-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
+  margin-bottom: 25px;
   text-align: center;
   color: #333;
-  font-weight: bold;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
+/* Restaurant Info Card */
 .restaurant-info {
   display: flex;
   align-items: center;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px;
 }
 
+/* Restaurant Logo */
 .restaurant-logo {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 20px;
-  border: 2px solid #ddd;
+  border: 3px solid #ddd;
+  transition: border-color 0.3s ease;
 }
 
+.restaurant-logo:hover {
+  border-color: #ff5722;
+}
+
+/* Restaurant Details */
 .restaurant-details {
   flex: 1;
 }
 
+/* Restaurant Name */
 .restaurant-name {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 0;
   color: #333;
+  font-weight: 700;
 }
 
+/* Restaurant City, Area, and Cost */
 .restaurant-city,
 .restaurant-area,
 .restaurant-cost-for-two {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #666;
   margin: 5px 0;
 }
 
+/* Rating and Delivery Info */
 .rating-and-delivery {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
+/* Restaurant Rating */
 .restaurant-rating {
   display: flex;
   align-items: center;
 }
 
+/* Rating Stars */
 .rating {
   display: flex;
   align-items: center;
-  font-size: 1.5rem; /* Adjust font size as needed */
+  font-size: 1.6rem;
 }
 
 .star {
   margin-right: 2px;
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); /* Subtle 3D effect */
-}
-
-.full-star {
-  color: #ffd700; /* Gold color for full stars */
-}
-
-.half-star {
-  color: #ffd700; /* Gold color for half stars */
-}
-
-.empty-star {
-  color: #dcdcdc; /* Light gray for empty stars */
+  color: #ffd700;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .rating-value {
-  margin-left: 8px;
-  font-size: 1.2rem; /* Adjust font size as needed */
-  color: #333; /* Dark color for the rating value */
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-
+  margin-left: 10px;
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
 }
 
 .rating:hover .star {
-  color: #ffab00; /* Change color on hover */
-  transform: scale(1.1); /* Slightly enlarge the stars on hover */
+  color: #ffab00;
+  transform: scale(1.1);
 }
 
-@media (max-width: 600px) {
-  .rating {
-    font-size: 1.5rem; /* Adjust font size for smaller screens */
-  }
-
-  .rating-value {
-    font-size: 1.5rem; /* Adjust font size for smaller screens */
-  }
-}
-
-
+/* Total Rating */
 .restaurant-total-rating {
-  margin-left: 10px;
-  font-size: 1.2rem;
+  margin-left: 15px;
+  font-size: 1.4rem;
   color: #ff5722;
+  font-weight: 700;
 }
 
+/* Delivery Time */
 .restaurant-delivery-time {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #ff5722;
 }
 
+/* Cuisines */
 .restaurant-cuisines {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #333;
 }
 
-.restaurant-ratings {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.restaurant-rating,
-.restaurant-rating-count {
-  margin-right: 10px;
-  font-size: 1.5rem;
-  color: black;
-}
-
+/* Offer Tag */
 .offer-tag {
-  padding: 15px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
   text-align: center;
-  margin: 10px 0;
+  margin: 15px 0;
   background: linear-gradient(135deg, #ff5722, #e64a19);
   color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .offer-title {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin: 0;
+  font-weight: 700;
 }
 
 .offer-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
+
+/* Carousel Container */
 .carousel-container {
   display: flex;
   overflow-x: auto;
   gap: 20px;
-  padding: 10px 0;
+  padding: 20px 0;
   scroll-behavior: smooth;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #ddd #fff; /* For Firefox */
 }
 
+/* Hide default scrollbar for WebKit browsers */
+.carousel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+/* Carousel Item */
 .carousel-item {
   flex: 0 0 auto;
-  width: 200px;
-  border: 1px solid #ddd;
+  width: 220px;
+  border: none;
   border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   background-color: #fff;
   text-align: center;
   padding: 15px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Carousel Item Hover Effect */
 .carousel-item:hover {
   transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
+/* Carousel Item Image */
 .carousel-item-image {
   width: 100%;
-  height: 150px;
+  height: 160px;
   object-fit: cover;
-  border-bottom: 1px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
+/* Carousel Item Details */
 .carousel-item-details {
-  padding: 10px;
+  padding: 0 10px;
 }
 
+/* Carousel Item Name */
 .carousel-item-name {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin: 10px 0;
+  font-weight: 600;
+  color: #333;
 }
 
+/* Carousel Item Description */
 .carousel-item-description,
 .carousel-item-category,
 .carousel-item-price {
@@ -1245,19 +1261,24 @@ section p {
   margin: 5px 0;
 }
 
+/* Carousel Item Price */
 .carousel-item-price {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ff5722;
 }
 
+/* Carousel Item Add-ons Button */
 .carousel-item-addons-button {
   background-color: #ff5722;
   color: #fff;
   border: none;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 6px;
+  padding: 12px;
   cursor: pointer;
+  font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
 }
 
 .carousel-item-addons-button:hover {
@@ -1265,35 +1286,90 @@ section p {
   transform: scale(1.05);
 }
 
+/* Carousel Item Hover Effect */
+.carousel-item-addons-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.3);
+}
+
+
+/* Container for the entire menu */
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Heading for the menu section */
 .menu-heading {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
   text-align: center;
-  color: #333;
+  color: #222;
 }
 
+/* Container for each menu section */
 .menu-section {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
 }
 
+.menu-section:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Title of the menu section */
 .menu-section-title {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+  color: #444;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.menu-section-title:hover {
+  background-color: #e0e0e0;
+}
+
+/* For toggled state: when expanded */
+.menu-section-content {
+  display: none;
+  padding: 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.menu-section-content.show {
+  display: block;
+  max-height: 1000px; /* Or a suitable max-height value based on content */
+}
+
+/* Menu items list */
 .menu-items {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Individual menu item */
 .menu-item {
   display: flex;
   border: 1px solid #ddd;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
   background-color: #fff;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -1303,12 +1379,14 @@ section p {
   transform: scale(1.02);
 }
 
+/* Menu item image */
 .menu-item-image {
   width: 150px;
   height: 150px;
   object-fit: cover;
 }
 
+/* Details for menu item */
 .menu-item-details {
   padding: 15px;
   flex: 1;
@@ -1318,6 +1396,7 @@ section p {
   font-size: 1.4rem;
   margin: 0;
   color: #333;
+  font-weight: bold;
 }
 
 .menu-item-description {
@@ -1356,6 +1435,7 @@ section p {
   font-style: italic;
 }
 
+
 /* Addons Modal Overlay */
 .addons-modal-overlay {
   position: fixed;
@@ -1368,68 +1448,34 @@ section p {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s ease;
 }
 
 /* Addons Modal */
 .addons-modal {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 80%;
+  max-height: 80%;
   overflow-y: auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   position: relative;
-  cursor: move;
+  animation: slideIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Close Button */
 .close-addons-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Add-ons Title */
-.addons-title {
-  margin-bottom: 15px;
-}
-
-/* Add-on Group */
-.addon-group {
-  margin-bottom: 10px;
-}
-
-/* Add-on Group Name */
-.addon-group-name {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-/* Add-on Choices */
-.addon-choices {
-  list-style: none;
-  padding: 0;
-}
-
-/* Add-on Choice */
-.addon-choice {
-  padding: 5px 0;
-}
-
-.close-addons-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   background-color: #ff5722;
   color: #fff;
   border: none;
   border-radius: 50%;
-  padding: 10px;
+  padding: 12px;
   cursor: pointer;
   font-size: 1.5rem;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -1440,6 +1486,52 @@ section p {
   transform: scale(1.1);
 }
 
+/* Add-ons Title */
+.addons-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Add-on Group */
+.addon-group {
+  margin-bottom: 20px;
+}
+
+/* Add-on Group Name */
+.addon-group-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Add-on Choices */
+.addon-choices {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Add-on Choice */
+.addon-choice {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.addon-choice:last-child {
+  border-bottom: none;
+}
+
+.addon-choice:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Animation Keyframes */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1451,7 +1543,7 @@ section p {
 
 @keyframes slideIn {
   from {
-    transform: translateY(-30px);
+    transform: translateY(-20px);
     opacity: 0;
   }
   to {
@@ -1459,6 +1551,7 @@ section p {
     opacity: 1;
   }
 }
+
 
 a {
   text-decoration: none;

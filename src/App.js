@@ -8,10 +8,12 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import ErrorPage from "./components/Error";
 import Menu from "./components/Menu";
+import ScrollToTop from "./components/ScrollToTop.js";
 
 const AppLayout = () => {
   return (
     <div className="app">
+      <ScrollToTop />
       <Header />
       <Outlet />
       <Footer />

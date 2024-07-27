@@ -8,6 +8,8 @@ import { MENU_API } from "../utils/constants";
 const Menu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [selectedAddons, setSelectedAddons] = useState(null);
+  const [expandedSections, setExpandedSections] = useState([]);
+  const [showMenu, setShowMenu] = useState(true); // Track menu expansion
   const { id } = useParams();
 
   useEffect(() => {
@@ -43,9 +45,14 @@ const Menu = () => {
     costForTwoMessage,
     cuisines,
     sla,
+    aggregatedDiscountInfoV2,
+    totalRatingsString,
+    availability
   } = resInfo?.cards[2]?.card?.card?.info || {};
   const { deliveryTime } = sla || {};
-
+  const { nextCloseTime, opened } = availability || {};
+  const { header, descriptionList } = aggregatedDiscountInfoV2 || {};
+  
   const img_id = cloudinaryImageId || logo;
 
   const handleAddonsClick = (addons) => {
@@ -54,6 +61,23 @@ const Menu = () => {
 
   const handleCloseAddons = () => {
     setSelectedAddons(null);
+  };
+
+  const toggleSection = (index) => {
+    setExpandedSections((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
+
+  const handleMenuToggle = () => {
+    setShowMenu((prev) => !prev);
+    if (showMenu) {
+      // Expand all sections when the menu is expanded
+      setExpandedSections(cards.map((_, index) => index));
+    } else {
+      // Collapse all sections when the menu is collapsed
+      setExpandedSections([]);
+    }
   };
 
   const renderItemCards = (items) => (
@@ -110,38 +134,42 @@ const Menu = () => {
       {categories.map((category, categoryIndex) => {
         const { title, itemCards } = category;
         return (
-          <div key={categoryIndex} className="category-section">
-            <h4 className="category-title">{title}</h4>
-            {renderItemCards(itemCards)}
-          </div>
+          itemCards.length > 0 && (
+            <div key={categoryIndex} className="category-section">
+              <h4
+                className="category-title"
+                onClick={() => toggleSection(categoryIndex)}
+              >
+                {title} {expandedSections.includes(categoryIndex) ? "▲" : "▼"}
+              </h4>
+              {expandedSections.includes(categoryIndex) && renderItemCards(itemCards)}
+            </div>
+          )
         );
       })}
     </div>
   );
 
-  const renderMenuSections = (card) => {
+  const renderMenuSections = (card, index) => {
     const { title, itemCards, categories } = card.card.card;
 
-    if (categories) {
-      // Case 2: Render categories
-      return (
-        <div className="menu-section">
-          <h3 className="menu-section-title">{title}</h3>
-          {renderCategories(categories)}
+    return (
+      (itemCards?.length > 0 || categories?.length > 0) && (
+        <div key={index} className="menu-section">
+          <h3
+            className="menu-section-title"
+            onClick={() => toggleSection(index)}
+          >
+            {title} {expandedSections.includes(index) ? "▲" : "▼"}
+          </h3>
+          {expandedSections.includes(index) && (
+            <>
+              {categories ? renderCategories(categories) : renderItemCards(itemCards)}
+            </>
+          )}
         </div>
-      );
-    } else if (itemCards) {
-      // Case 1: Render itemCards directly
-      return (
-        <div className="menu-section">
-          <h3 className="menu-section-title">{title}</h3>
-          {renderItemCards(itemCards)}
-        </div>
-      );
-    } else {
-      // Handle unexpected structure
-      return null;
-    }
+      )
+    );
   };
 
   return (
@@ -159,6 +187,7 @@ const Menu = () => {
           <div className="rating-and-delivery">
             <div className="restaurant-rating">
               <div className="star-rating">{renderStars(avgRating)}</div>
+              <span className="restaurant-total-rating">{`(${totalRatingsString})`}</span>
             </div>
             <h4 className="restaurant-delivery-time">
               Delivery in {deliveryTime} mins
@@ -212,33 +241,18 @@ const Menu = () => {
         </div>
       )}
 
-      <h2 className="menu-heading">Menu</h2>
-      {cards.map((card, index) => {
-        if (index >= 2) {
-          // Handle cards starting from index 2
-          return renderMenuSections(card);
-        } else {
-          // Handle special cases for indices 0 and 1
-          const { title, itemCards, categories } = card.card.card;
-          if (categories) {
-            return (
-              <div key={index} className="menu-section">
-                <h3 className="menu-section-title">{title}</h3>
-                {renderCategories(categories)}
-              </div>
-            );
-          } else if (itemCards) {
-            return (
-              <div key={index} className="menu-section">
-                <h3 className="menu-section-title">{title}</h3>
-                {renderItemCards(itemCards)}
-              </div>
-            );
-          }
-          // Handle unexpected structure
-          return null;
-        }
-      })}
+      <h2
+        className="menu-heading"
+        onClick={handleMenuToggle}
+      >
+        Menu {showMenu ? "▲" : "▼"}
+      </h2>
+
+      {showMenu && (
+        <>
+          {cards.flatMap((card, index) => renderMenuSections(card, index))}
+        </>
+      )}
 
       {selectedAddons && (
         <div className="addons-modal-overlay">

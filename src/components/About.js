@@ -120,3 +120,27 @@ class About extends Component {
 
 export default About;
 
+
+
+/* 
+
+This is an optimization for react.
+
+when there is multiple class based child component so react will batch render phase of all the child component and then commit phase of all the child component happen together in one go.
+
+https://medium.com/codex/the-lifecycle-of-a-react-component-8e01332a068d
+
+why we batch render phase of all the components together?
+- because react want to minimize the number of dom manipulation.
+- if we render the component one by one then it will cause multiple dom manipulation which is not good for performance.
+- so react will batch the render phase of all the child component and then commit phase of all the child component happen together in one go.
+- this is called batch rendering.
+- this is the reason why we see the console log of all the child component first and then parent component.
+
+
+- After rendering the component, react will call the componentDidMount method of all the child component and then parent component.
+- DOM Update in Single Batch: React will update the DOM in a single batch. This means that if there are multiple updates to the DOM, React will batch them together and update the DOM in a single go. This is done to minimize the number of DOM manipulations and improve performance.
+
+- React will batch the render phase of all the child component and then commit phase of all the child component happen together in one go.
+
+*/
