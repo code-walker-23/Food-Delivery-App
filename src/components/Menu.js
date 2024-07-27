@@ -9,7 +9,7 @@ const Menu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [selectedAddons, setSelectedAddons] = useState(null);
   const { id } = useParams();
-  
+
   useEffect(() => {
     fetchMenu();
   }, [id]);
@@ -32,7 +32,6 @@ const Menu = () => {
   const { cards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR || [];
   const { carousel } = cards[1]?.card?.card || [];
   const { title } = cards[1]?.card?.card;
-
 
   const {
     name,
@@ -90,9 +89,7 @@ const Menu = () => {
               ) : (
                 "Available"
               )}
-              <p className="menu-item-price">
-                ₹{(value / 100).toFixed(2)}
-              </p>
+              <p className="menu-item-price">₹{(value / 100).toFixed(2)}</p>
               {addons?.length > 0 && (
                 <button
                   className="menu-item-addons-button"
@@ -259,7 +256,7 @@ const Menu = () => {
                       {choice.name}
                       {isNaN(choice.price)
                         ? " - Not Available"
-                        : (" - ₹"+ choice.price / 100)}
+                        : " - ₹" + choice.price / 100}
                     </li>
                   ))}
                 </ul>
