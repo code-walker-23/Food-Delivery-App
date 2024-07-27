@@ -9,17 +9,19 @@ const Menu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [selectedAddons, setSelectedAddons] = useState(null);
   const { id } = useParams();
-  console.log(id);
-
+  
   useEffect(() => {
     fetchMenu();
-  }, []);
+  }, [id]);
 
   const fetchMenu = async () => {
-    const data = await fetch(MENU_API + id);
-    const json = await data.json();
-    setResInfo(json.data);
-    console.log(json.data);
+    try {
+      const response = await fetch(MENU_API + id);
+      const json = await response.json();
+      setResInfo(json.data);
+    } catch (error) {
+      console.error("Failed to fetch menu:", error);
+    }
   };
 
   if (resInfo === null) {
@@ -29,22 +31,23 @@ const Menu = () => {
   const { text } = resInfo?.cards[0]?.card?.card || {};
   const { cards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR || [];
   const { carousel } = cards[1]?.card?.card || [];
+  const { title } = cards[1]?.card?.card;
+
 
   const {
     name,
     city,
     areaName,
     avgRating,
+    logo,
     cloudinaryImageId,
     costForTwoMessage,
     cuisines,
-    logo,
     sla,
-    slugs,
-    offerTags,
-    ratings,
   } = resInfo?.cards[2]?.card?.card?.info || {};
   const { deliveryTime } = sla || {};
+
+  const img_id = cloudinaryImageId || logo;
 
   const handleAddonsClick = (addons) => {
     setSelectedAddons(addons);
@@ -54,9 +57,94 @@ const Menu = () => {
     setSelectedAddons(null);
   };
 
-  const handleAddonSelection = (addon) => {
-    // Implement logic to handle addon selection (e.g., add to cart)
-    console.log("Selected Addon:", addon);
+  const renderItemCards = (items) => (
+    <ul className="menu-items">
+      {items.map((item, itemIndex) => {
+        const {
+          name,
+          description,
+          imageId,
+          category,
+          inStock,
+          price,
+          defaultPrice,
+          addons,
+        } = item.card.info;
+        const value = price ?? defaultPrice;
+        return (
+          <li
+            key={itemIndex}
+            className={`menu-item ${!inStock ? "out-of-stock" : ""}`}
+          >
+            <img
+              className="menu-item-image"
+              src={IMAGE_URL + imageId}
+              alt={name}
+            />
+            <div className="menu-item-details">
+              <h4 className="menu-item-name">{name}</h4>
+              <p className="menu-item-description">{description}</p>
+              <p className="menu-item-category">Category: {category}</p>
+              {!inStock ? (
+                <p className="menu-item-stock">Out of Stock</p>
+              ) : (
+                "Available"
+              )}
+              <p className="menu-item-price">
+                ₹{(value / 100).toFixed(2)}
+              </p>
+              {addons?.length > 0 && (
+                <button
+                  className="menu-item-addons-button"
+                  onClick={() => handleAddonsClick(addons)}
+                >
+                  Add+
+                </button>
+              )}
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  );
+
+  const renderCategories = (categories) => (
+    <div className="categories-section">
+      {categories.map((category, categoryIndex) => {
+        const { title, itemCards } = category;
+        return (
+          <div key={categoryIndex} className="category-section">
+            <h4 className="category-title">{title}</h4>
+            {renderItemCards(itemCards)}
+          </div>
+        );
+      })}
+    </div>
+  );
+
+  const renderMenuSections = (card) => {
+    const { title, itemCards, categories } = card.card.card;
+
+    if (categories) {
+      // Case 2: Render categories
+      return (
+        <div className="menu-section">
+          <h3 className="menu-section-title">{title}</h3>
+          {renderCategories(categories)}
+        </div>
+      );
+    } else if (itemCards) {
+      // Case 1: Render itemCards directly
+      return (
+        <div className="menu-section">
+          <h3 className="menu-section-title">{title}</h3>
+          {renderItemCards(itemCards)}
+        </div>
+      );
+    } else {
+      // Handle unexpected structure
+      return null;
+    }
   };
 
   return (
@@ -64,7 +152,7 @@ const Menu = () => {
       <div className="restaurant-info">
         <img
           className="restaurant-logo"
-          src={IMAGE_URL + logo}
+          src={IMAGE_URL + img_id}
           alt="Restaurant Logo"
         />
         <div className="restaurant-details">
@@ -83,7 +171,8 @@ const Menu = () => {
           <h4 className="restaurant-cuisines">{cuisines.join(", ")}</h4>
         </div>
       </div>
-      {carousel != undefined && (
+
+      {carousel && (
         <div className="carousel-container">
           {carousel.map((item, index) => {
             const {
@@ -94,11 +183,11 @@ const Menu = () => {
               price,
               defaultPrice,
               addons,
-              attributes,
             } = item.dish.info;
             const value = price ?? defaultPrice;
             return (
               <div key={index} className="carousel-item">
+                <h3 className="carousel-item-title">{title}</h3>
                 <img
                   className="carousel-item-image"
                   src={IMAGE_URL + imageId}
@@ -125,64 +214,35 @@ const Menu = () => {
           })}
         </div>
       )}
+
       <h2 className="menu-heading">Menu</h2>
-      {cards?.slice(2).map((card, index) => {
-        const { title, itemCards } = card.card.card;
-        return (
-          <div key={index} className="menu-section">
-            <h3 className="menu-section-title">{title}</h3>
-            <ul className="menu-items">
-              {itemCards?.map((item, itemIndex) => {
-                const {
-                  name,
-                  description,
-                  imageId,
-                  category,
-                  inStock,
-                  price,
-                  defaultPrice,
-                  addons,
-                  attributes,
-                } = item.card.info;
-                const value = price ?? defaultPrice;
-                return (
-                  <li
-                    key={itemIndex}
-                    className={`menu-item ${!inStock ? "out-of-stock" : ""}`}
-                  >
-                    <img
-                      className="menu-item-image"
-                      src={IMAGE_URL + imageId}
-                      alt={name}
-                    />
-                    <div className="menu-item-details">
-                      <h4 className="menu-item-name">{name}</h4>
-                      <p className="menu-item-description">{description}</p>
-                      <p className="menu-item-category">Category: {category}</p>
-                      {!inStock ? (
-                        <p className="menu-item-stock">Out of Stock</p>
-                      ) : (
-                        "Available"
-                      )}
-                      <p className="menu-item-price">
-                        ₹{(value / 100).toFixed(2)}
-                      </p>
-                      {addons?.length > 0 && (
-                        <button
-                          className="menu-item-addons-button"
-                          onClick={() => handleAddonsClick(addons)}
-                        >
-                          Add+
-                        </button>
-                      )}
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        );
+      {cards.map((card, index) => {
+        if (index >= 2) {
+          // Handle cards starting from index 2
+          return renderMenuSections(card);
+        } else {
+          // Handle special cases for indices 0 and 1
+          const { title, itemCards, categories } = card.card.card;
+          if (categories) {
+            return (
+              <div key={index} className="menu-section">
+                <h3 className="menu-section-title">{title}</h3>
+                {renderCategories(categories)}
+              </div>
+            );
+          } else if (itemCards) {
+            return (
+              <div key={index} className="menu-section">
+                <h3 className="menu-section-title">{title}</h3>
+                {renderItemCards(itemCards)}
+              </div>
+            );
+          }
+          // Handle unexpected structure
+          return null;
+        }
       })}
+
       {selectedAddons && (
         <div className="addons-modal-overlay">
           <div className="addons-modal">
@@ -196,10 +256,10 @@ const Menu = () => {
                 <ul className="addon-choices">
                   {addon.choices.map((choice, choiceIndex) => (
                     <li key={choiceIndex} className="addon-choice">
-                      {choice.name} - ₹
+                      {choice.name}
                       {isNaN(choice.price)
-                        ? "Not Available"
-                        : (choice.price / 100).toFixed(2)}
+                        ? " - Not Available"
+                        : (" - ₹"+ choice.price / 100)}
                     </li>
                   ))}
                 </ul>
