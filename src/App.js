@@ -12,6 +12,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import TopRatedRestaurant from "./components/TopRatedRestaurant";
 import Search from "./components/Search";
 import Profile from "./components/Profile";
+import CityComponent from "./components/CityComponent";
 
 const AppLayout = () => {
   return (
@@ -50,6 +51,9 @@ const appRouter = createBrowserRouter([
       },{
         path : "/profile",
         element : <Profile />
+      },{
+        path : "/cities",
+        element : <CityComponent />
       }
     ],
     errorElement: <ErrorPage />
@@ -161,3 +165,29 @@ This setup ensures a consistent layout with a header and footer while dynamicall
 
 
 
+/* 
+
+
+Single Responsibility Principle (SRP) : It is a software design principle that states that a class should have only one reason to change, meaning that a class should have only one job or responsibility.
+
+SRP : It helps in making the code more modular, easier to maintain, and less prone to bugs. By separating concerns and responsibilities, each class or module can focus on a specific task, making the codebase more organized and scalable.
+
+SRP : It helps in reducing the complexity of the code, improving readability, and facilitating easier testing and debugging.
+
+Custome Hooks : Custom hooks are JavaScript functions that utilize React hooks (like useState, useEffect, etc.) to encapsulate and reuse logic in a React application. They allow you to extract common logic into reusable functions that can be shared across components.
+
+Custom Hooks : Custom hooks can be used to abstract complex logic, manage stateful behavior, handle side effects, and improve code reusability in React components.
+
+Custom Hooks : By creating custom hooks, you can separate concerns, make your code more modular, and reduce duplication, leading to cleaner and more maintainable code.
+
+Custom Hooks : Custom hooks follow the naming convention of starting with "use" (e.g., useCustomHook) to indicate that they are hooks and should be used within functional components.
+
+Custom Hooks : Custom hooks can be shared and reused across multiple components, providing a way to encapsulate and share common functionality in a React application.
+
+Custom Hooks : Custom hooks can be used to abstract API calls, manage form state, handle authentication, implement pagination, and more, making them a powerful tool for building complex and scalable React applications.
+
+
+
+
+
+*/

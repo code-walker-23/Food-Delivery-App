@@ -3,6 +3,8 @@ import RestaurantCard from "./RestaurantCard";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import OfflineComponent from "../utils/offlineComponent";
 
 const Search = () => {
   const [resFilter, setListOfRestaurant] = useState([]);
@@ -30,6 +32,11 @@ const Search = () => {
         res.info.name.toLowerCase().includes(searchText.toLowerCase())
       )
     );
+  }
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
+    return <OfflineComponent />;
   }
   return (
     <div className="search">

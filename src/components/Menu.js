@@ -3,35 +3,29 @@ import { Shimmer } from "./Shimmer";
 import { IMAGE_URL } from "../utils/constants";
 import { renderStars } from "./star";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import OfflineComponent from "../utils/offlineComponent";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Menu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const [selectedAddons, setSelectedAddons] = useState(null);
   const [expandedSections, setExpandedSections] = useState({});
   const [expandedCategories, setExpandedCategories] = useState({});
   const [showMenu, setShowMenu] = useState(true); // Track menu expansion
   const { id } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, [id]);
+  const resInfo = useRestaurantMenu(id);
 
-  const fetchMenu = async () => {
-    try {
-      const response = await fetch(MENU_API + id);
-      const json = await response.json();
-      setResInfo(json.data);
-    } catch (error) {
-      console.error("Failed to fetch menu:", error);
-    }
-  };
+  const onlineStatus = useOnlineStatus();
 
-  if (resInfo === null) {
+  if (!onlineStatus) {
+    return <OfflineComponent />;
+  }
+  // useRestaurantMenu will return [] before fetching the data from the API.
+  if (resInfo.length == 0) {
     return <Shimmer />;
   }
 
-  const { text } = resInfo?.cards[0]?.card?.card || {};
   const { cards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR || [];
   const { carousel } = cards[1]?.card?.card || [];
   const { title } = cards[1]?.card?.card;
@@ -156,7 +150,8 @@ const Menu = () => {
                 className="category-title"
                 onClick={() => toggleCategory(sectionIndex, categoryIndex)}
               >
-                {title} {expandedCategories[sectionIndex]?.[categoryIndex] ? "▲" : "▼"}
+                {title}{" "}
+                {expandedCategories[sectionIndex]?.[categoryIndex] ? "▲" : "▼"}
               </h4>
               {expandedCategories[sectionIndex]?.[categoryIndex] &&
                 renderItemCards(itemCards)}
@@ -298,3 +293,15 @@ const Menu = () => {
 };
 
 export default Menu;
+
+/* 
+
+We will use custom hook to fetch tha data from the API.
+And Menu card is only responsible to show the data on the UI.
+useRestaurantMenu() -> custom hook to fetch the data from the API and return the data.
+ It is only responsible to fetch the data.
+Implementation of custom hook useRestaurantMenu(resId) is abstracted in the useRestaurantMenu.js file.
+
+
+
+*/

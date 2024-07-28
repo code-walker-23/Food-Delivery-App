@@ -3,6 +3,8 @@ import RestaurantCard from "./RestaurantCard";
 import { Shimmer } from "./Shimmer";
 import { SWIGGY_API } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import OfflineComponent from "../utils/offlineComponent";
 
 const TopRatedRestaurant = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -22,18 +24,26 @@ const TopRatedRestaurant = () => {
     setLoading(false);
   };
 
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
+    return <OfflineComponent />;
+  }
+
   return (
     <div className="top-rated-res">
-     
-      <div class="top-rated"> <div className="filter-btn">Top Rated Restaurant</div></div>
+      <div class="top-rated">
+        {" "}
+        <div className="filter-btn">Top Rated Restaurant</div>
+      </div>
 
       {loading ? (
         <Shimmer />
       ) : (
         <div className="restaurant-container">
-          {filteredRestaurant.map((restaurant) => (
+          {filteredRestaurant.map((restaurant,index) => (
             <Link to={`/restaurants/${restaurant.info.id}`}>
-              <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+              <RestaurantCard key={index} resData={restaurant} />
             </Link>
           ))}
         </div>

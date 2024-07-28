@@ -1,6 +1,14 @@
 import React from "react";
+import OfflineComponent from "../utils/offlineComponent";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
-const Profile = () => (
+const Profile = () => {
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
+    return <OfflineComponent />;
+  }
+  return (
   <div className="profile-container">
     <div className="profile-header">
       <img
@@ -40,6 +48,7 @@ const Profile = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default Profile;

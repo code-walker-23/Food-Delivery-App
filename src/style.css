@@ -21,7 +21,11 @@
 .logo-container {
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background for logo container */
+  background: linear-gradient(
+    135deg,
+    #ff7e5f,
+    #feb47b
+  ); /* Gradient background for logo container */
   padding: 10px 20px; /* Padding around the logo */
   border-radius: 8px; /* Rounded corners */
   transition: background 0.3s ease, transform 0.3s ease;
@@ -42,7 +46,11 @@
 
 /* Hover effects for the logo container */
 .logo-container:hover {
-  background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+  background: linear-gradient(
+    135deg,
+    #feb47b,
+    #ff7e5f
+  ); /* Reverse gradient on hover */
   transform: scale(1.05); /* Slightly enlarge the container */
 }
 
@@ -100,14 +108,22 @@
 
 .nav-items li:hover,
 .nav-items li a:hover {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background on hover */
+  background: linear-gradient(
+    135deg,
+    #ff7e5f,
+    #feb47b
+  ); /* Gradient background on hover */
   transform: translateY(-3px); /* Slight lift effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
 }
 
 /* Login button styling */
 .login-button {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+  background: linear-gradient(
+    135deg,
+    #ff7e5f,
+    #feb47b
+  ); /* Gradient background */
   border: none;
   border-radius: 20px; /* Rounded corners */
   color: #ffffff; /* White text color */
@@ -122,7 +138,11 @@
 
 /* Hover effect for the login button */
 .login-button:hover {
-  background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+  background: linear-gradient(
+    135deg,
+    #feb47b,
+    #ff7e5f
+  ); /* Reverse gradient on hover */
   transform: translateY(-3px); /* Slight lift effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
 }
@@ -169,7 +189,6 @@
     margin: 10px 0; /* Increased margin for better spacing */
   }
 }
-
 
 .restaurant-container {
   display: grid;
@@ -271,13 +290,16 @@
   }
 }
 
-
 /* Top Rated Section */
 .top-rated {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background with new color combination */
+  background: linear-gradient(
+    135deg,
+    #ff7e5f,
+    #feb47b
+  ); /* Gradient background with new color combination */
   padding: 15px 10px; /* Slightly smaller padding */
   margin: 16px auto; /* Center the section on the page with a bit less space */
   border-radius: 8px; /* Rounded corners */
@@ -297,7 +319,6 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
-
 /* Container for buttons */
 .button-container {
   display: flex;
@@ -305,7 +326,6 @@
   margin-top: 20px; /* Spacing above the buttons */
   margin-bottom: 20px; /* Spacing below the buttons */
 }
-
 
 /* Centering the search container and its contents */
 .search-container {
@@ -356,7 +376,6 @@
   transform: scale(1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Footer */
 
@@ -1161,7 +1180,6 @@ section p {
   font-weight: 700;
 }
 
-
 /* Cuisines */
 .restaurant-cuisines {
   font-size: 1.3rem;
@@ -1328,7 +1346,8 @@ section p {
 }
 
 /* Title of the menu section */
-.category-title,.menu-heading,
+.category-title,
+.menu-heading,
 .menu-section-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -1349,7 +1368,6 @@ section p {
   background-color: #ff5722;
   color: whitesmoke;
   margin-bottom: 20px;
-
 }
 
 .category-title {
@@ -1582,8 +1600,6 @@ a {
   color: #333;
 }
 
-
-
 /* Profile */
 
 /* Profile Container */
@@ -1595,7 +1611,7 @@ a {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1681,9 +1697,6 @@ a {
   background-color: darken(#333, 10%);
 }
 
-
-
-
 /* CSS for city buttons */
 .city-buttons {
   display: flex;
@@ -1705,12 +1718,182 @@ a {
   cursor: pointer;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background with new color combination */
-
+  background: linear-gradient(
+    135deg,
+    #ff7e5f,
+    #feb47b
+  ); /* Gradient background with new color combination */
 }
 
 .city-buttons button:hover {
-  background-color: #343a40 ; /* Gold */
-  color:white; /* Dark Gray */
+  background-color: #343a40; /* Gold */
+  color: white; /* Dark Gray */
   border: 2px solid #343a40; /* Dark Gray */
 }
+
+.offline-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #fbc2eb, #a6c0fe); /* Gradient background */
+  text-align: center;
+}
+
+.offline-content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.offline-icon {
+  font-size: 80px;
+  margin: 0 0 20px 0;
+  color: #ff6b6b;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.offline-message {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  margin: 10px 0;
+}
+
+.offline-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.retry-button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: pulse 1.5s infinite;
+  display: inline-block;
+  margin-top: 10px; /* Ensure some space above the button */
+}
+
+.retry-button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.retry-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 126, 95, 0.3);
+}
+
+.retry-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Search */
+
+
+/* Add these styles to your CSS file */
+
+.cities-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.city-search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+.city-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.city-list button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff7e5f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.city-list button:hover {
+  background-color: #feb47b;
+  transform: translateY(-2px);
+}
+
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+

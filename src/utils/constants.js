@@ -12,3 +12,4 @@ export const SWIGGY_API_AGRA = "https://www.swiggy.com/dapi/restaurants/list/v5?
 export const SWIGGY_API_KOLKATA = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5743545&lng=88.3628734&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 export const SWIGGY_API_HYD = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+export const SWIGGY_API_DELHI = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6790&lng=77.0697&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";

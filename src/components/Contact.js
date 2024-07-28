@@ -1,4 +1,14 @@
+import OfflineComponent from "../utils/offlineComponent";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 function Contact() {
+
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
+    return <OfflineComponent />;
+  }
+  
   return (
     <div className="contact-container">
       <header className="contact-header">
