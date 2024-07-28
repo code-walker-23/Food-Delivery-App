@@ -2,87 +2,48 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
-
-// useState should not declare outside the component function.
-// Never use useState inside the loop or condition.
+import { SWIGGY_API, SWIGGY_API_AGRA, SWIGGY_API_HYD, SWIGGY_API_KOLKATA, SWIGGY_API_MUM } from "../utils/constants";
 
 const Body = () => {
-  const [resFilter, setListOfRestaurant] = useState([]);
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchText, setSearchText] = useState("");
-
-  // whenever the state varibale changes, react triggers the reconciliation and re-render the UI.
+  const [selectedCityAPI, setSelectedCityAPI] = useState(SWIGGY_API);
 
   useEffect(() => {
-    fetchData(); // our browser will block the request because of CORS policy.
-  }, []);
+    fetchData(selectedCityAPI);
+  }, [selectedCityAPI]);
 
-  console.log("Body Component is Rendered!");
+  const fetchData = async (cityAPI) => {
+    setLoading(true);
+    try {
+      const response = await fetch(cityAPI);
+      const json = await response.json();
 
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+      const restaurants = json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
-    const json = await data.json();
-    const res1 =
-      json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    // console.log(json);
-    setListOfRestaurant(res1);
-    setFilteredRestaurant(res1);
-    setLoading(false);
+      setListOfRestaurants(restaurants);
+      setLoading(false);
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+    }
   };
-  function handleSearch() {
-    setFilteredRestaurant(
-      resFilter.filter((res) =>
-        res.info.name.toLowerCase().includes(searchText.toLowerCase())
-      )
-    );
-  }
+
   return (
     <div className="body">
-      <div className="button-container">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setFilteredRestaurant(
-              resFilter.filter((res) => res.info.avgRating >= 4.5)
-            );
-          }}
-        >
-          Top Rated Restaurants
-        </button>
-
-        <div className="search-btn">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search..."
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault(); // Prevent default Enter key behavior
-                handleSearch(); // Call the search function
-              }
-            }}
-          />
-          <button className="search-button" onClick={handleSearch}>
-            Search
-          </button>
-        </div>
+      <div className="city-buttons">
+        <button onClick={() => setSelectedCityAPI(SWIGGY_API)}>All</button>
+        <button onClick={() => setSelectedCityAPI(SWIGGY_API_AGRA)}>Agra</button>
+        <button onClick={() => setSelectedCityAPI(SWIGGY_API_HYD)}>Hyderabad</button>
+        <button onClick={() => setSelectedCityAPI(SWIGGY_API_KOLKATA)}>Kolkata</button>
+        <button onClick={() => setSelectedCityAPI(SWIGGY_API_MUM)}>Mumbai</button>
       </div>
-
       {loading ? (
         <Shimmer />
-      ) : filteredRestaurant.length === 0 ? (
-        <div className="no-res">No Restaurant Found</div>
       ) : (
         <div className="restaurant-container">
-          {filteredRestaurant.map((restaurant, index) => (
-            <Link to={`/restaurants/${restaurant.info.id}`}>
-              <RestaurantCard key={index} resData={restaurant} />
+          {listOfRestaurants.map((restaurant, index) => (
+            <Link key={index} to={`/restaurants/${restaurant.info.id}`}>
+              <RestaurantCard resData={restaurant} />
             </Link>
           ))}
         </div>

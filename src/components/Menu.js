@@ -8,7 +8,8 @@ import { MENU_API } from "../utils/constants";
 const Menu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [selectedAddons, setSelectedAddons] = useState(null);
-  const [expandedSections, setExpandedSections] = useState([]);
+  const [expandedSections, setExpandedSections] = useState({});
+  const [expandedCategories, setExpandedCategories] = useState({});
   const [showMenu, setShowMenu] = useState(true); // Track menu expansion
   const { id } = useParams();
 
@@ -47,12 +48,12 @@ const Menu = () => {
     sla,
     aggregatedDiscountInfoV2,
     totalRatingsString,
-    availability
+    availability,
   } = resInfo?.cards[2]?.card?.card?.info || {};
   const { deliveryTime } = sla || {};
   const { nextCloseTime, opened } = availability || {};
   const { header, descriptionList } = aggregatedDiscountInfoV2 || {};
-  
+
   const img_id = cloudinaryImageId || logo;
 
   const handleAddonsClick = (addons) => {
@@ -64,19 +65,34 @@ const Menu = () => {
   };
 
   const toggleSection = (index) => {
-    setExpandedSections((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-    );
+    setExpandedSections((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
+  const toggleCategory = (sectionIndex, categoryIndex) => {
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [sectionIndex]: {
+        ...(prev[sectionIndex] || {}),
+        [categoryIndex]: !prev[sectionIndex]?.[categoryIndex],
+      },
+    }));
   };
 
   const handleMenuToggle = () => {
     setShowMenu((prev) => !prev);
     if (showMenu) {
       // Expand all sections when the menu is expanded
-      setExpandedSections(cards.map((_, index) => index));
+      const allSections = cards.reduce((acc, _, index) => {
+        acc[index] = true;
+        return acc;
+      }, {});
+      setExpandedSections(allSections);
     } else {
       // Collapse all sections when the menu is collapsed
-      setExpandedSections([]);
+      setExpandedSections({});
     }
   };
 
@@ -129,7 +145,7 @@ const Menu = () => {
     </ul>
   );
 
-  const renderCategories = (categories) => (
+  const renderCategories = (categories, sectionIndex) => (
     <div className="categories-section">
       {categories.map((category, categoryIndex) => {
         const { title, itemCards } = category;
@@ -138,11 +154,12 @@ const Menu = () => {
             <div key={categoryIndex} className="category-section">
               <h4
                 className="category-title"
-                onClick={() => toggleSection(categoryIndex)}
+                onClick={() => toggleCategory(sectionIndex, categoryIndex)}
               >
-                {title} {expandedSections.includes(categoryIndex) ? "▲" : "▼"}
+                {title} {expandedCategories[sectionIndex]?.[categoryIndex] ? "▲" : "▼"}
               </h4>
-              {expandedSections.includes(categoryIndex) && renderItemCards(itemCards)}
+              {expandedCategories[sectionIndex]?.[categoryIndex] &&
+                renderItemCards(itemCards)}
             </div>
           )
         );
@@ -160,11 +177,13 @@ const Menu = () => {
             className="menu-section-title"
             onClick={() => toggleSection(index)}
           >
-            {title} {expandedSections.includes(index) ? "▲" : "▼"}
+            {title} {expandedSections[index] ? "▲" : "▼"}
           </h3>
-          {expandedSections.includes(index) && (
+          {expandedSections[index] && (
             <>
-              {categories ? renderCategories(categories) : renderItemCards(itemCards)}
+              {categories
+                ? renderCategories(categories, index)
+                : renderItemCards(itemCards)}
             </>
           )}
         </div>
@@ -189,10 +208,10 @@ const Menu = () => {
               <div className="star-rating">{renderStars(avgRating)}</div>
               <span className="restaurant-total-rating">{`(${totalRatingsString})`}</span>
             </div>
-            <h4 className="restaurant-delivery-time">
-              Delivery in {deliveryTime} mins
-            </h4>
           </div>
+          <h4 className="restaurant-delivery-time">
+            Delivery in {deliveryTime} mins
+          </h4>
           <h4 className="restaurant-cost-for-two">{costForTwoMessage}</h4>
           <h4 className="restaurant-cuisines">{cuisines.join(", ")}</h4>
         </div>
@@ -241,17 +260,12 @@ const Menu = () => {
         </div>
       )}
 
-      <h2
-        className="menu-heading"
-        onClick={handleMenuToggle}
-      >
+      <h2 className="menu-heading" onClick={handleMenuToggle}>
         Menu {showMenu ? "▲" : "▼"}
       </h2>
 
       {showMenu && (
-        <>
-          {cards.flatMap((card, index) => renderMenuSections(card, index))}
-        </>
+        <>{cards.flatMap((card, index) => renderMenuSections(card, index))}</>
       )}
 
       {selectedAddons && (

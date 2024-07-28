@@ -8,7 +8,10 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import ErrorPage from "./components/Error";
 import Menu from "./components/Menu";
-import ScrollToTop from "./components/ScrollToTop.js";
+import ScrollToTop from "./components/ScrollToTop";
+import TopRatedRestaurant from "./components/TopRatedRestaurant";
+import Search from "./components/Search";
+import Profile from "./components/Profile";
 
 const AppLayout = () => {
   return (
@@ -38,6 +41,15 @@ const appRouter = createBrowserRouter([
       {
         path : "/restaurants/:id",
         element : <Menu />
+      },{
+        path : "/top-rated-restaurants",
+        element : <TopRatedRestaurant />
+      },{
+        path : "/search",
+        element : <Search />
+      },{
+        path : "/profile",
+        element : <Profile />
       }
     ],
     errorElement: <ErrorPage />

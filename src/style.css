@@ -3,17 +3,17 @@
 /* Importing Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
-/* Basic styling for the header */
-
+/* Header styling */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px; /* Reduced padding for a smaller header */
-  background-color: #333; /* Dark background color */
-  color: #fff; /* White text color */
+  padding: 15px 30px; /* Increased padding for a more spacious look */
+  background-color: #282c34; /* Darker background color */
+  color: #ffffff; /* White text color */
   border-bottom: 2px solid #444; /* Slightly darker border at the bottom */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Elegant, modern font family */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   position: relative;
 }
 
@@ -21,22 +21,19 @@
 .logo-container {
   display: flex;
   align-items: center;
-  background: linear-gradient(
-    135deg,
-    #ff7e5f,
-    #feb47b
-  ); /* Gradient background for logo container */
-  padding: 8px 16px; /* Reduced padding around the logo */
-  border-radius: 8px; /* Slightly rounded corners */
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background for logo container */
+  padding: 10px 20px; /* Padding around the logo */
+  border-radius: 8px; /* Rounded corners */
   transition: background 0.3s ease, transform 0.3s ease;
   position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* General text-based logo styling */
 .logo-text {
-  font-size: 24px; /* Smaller font size for a compact look */
+  font-size: 1.8rem; /* Adjusted font size for balance */
   font-weight: 700;
-  color: #fff; /* White text color */
+  color: #ffffff; /* White text color */
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0;
@@ -45,19 +42,14 @@
 
 /* Hover effects for the logo container */
 .logo-container:hover {
-  background: linear-gradient(
-    135deg,
-    #feb47b,
-    #ff7e5f
-  ); /* Reverse gradient on hover */
+  background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
   transform: scale(1.05); /* Slightly enlarge the container */
 }
 
 /* Hover effects for the text-based logo */
 .logo-container:hover .logo-text {
-  color: #333; /* Dark text color on hover */
-  transform: translateY(-5px); /* Move the text up on hover */
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  color: #282c34; /* Dark text color on hover */
+  transform: translateY(-3px); /* Move the text up on hover */
 }
 
 /* Animation for more dynamic movement */
@@ -91,60 +83,47 @@
 }
 
 .nav-items li {
-  margin: 0 10px; /* Reduced margin for a compact look */
-  font-size: 16px; /* Slightly smaller font size */
+  margin: 0 15px; /* Adjusted margin for spacing */
+  font-size: 1rem; /* Font size for navigation items */
   font-weight: 500;
-  color: #fff; /* Default text color */
+  color: #ffffff; /* Default text color */
   cursor: pointer;
-  padding: 8px 16px; /* Reduced padding to match login button */
+  padding: 10px 20px; /* Padding to match login button */
   border-radius: 20px; /* Rounded corners */
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
 .nav-items li a {
-  color: #fff; /* White text color */
+  color: #ffffff; /* White text color */
   text-decoration: none; /* Remove underline */
 }
 
 .nav-items li:hover,
 .nav-items li a:hover {
-  background: linear-gradient(
-    135deg,
-    #ff7e5f,
-    #feb47b
-  ); /* Gradient background on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background on hover */
+  transform: translateY(-3px); /* Slight lift effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
 }
 
 /* Login button styling */
 .login-button {
-  background: linear-gradient(
-    135deg,
-    #ff7e5f,
-    #feb47b
-  ); /* Gradient background */
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
   border: none;
   border-radius: 20px; /* Rounded corners */
-  color: #fff; /* White text color */
+  color: #ffffff; /* White text color */
   font-family: "Roboto", sans-serif; /* Modern font */
-  font-size: 14px; /* Slightly smaller font size */
+  font-size: 1rem; /* Adjusted font size */
   font-weight: 700; /* Bold text */
-  padding: 8px 16px; /* Reduced padding for a compact button */
+  padding: 10px 20px; /* Padding for a more balanced look */
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  display: inline-block;
 }
 
 /* Hover effect for the login button */
 .login-button:hover {
-  background: linear-gradient(
-    135deg,
-    #feb47b,
-    #ff7e5f
-  ); /* Reverse gradient on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+  transform: translateY(-3px); /* Slight lift effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
 }
 
@@ -178,7 +157,7 @@
   }
 
   .logo-container {
-    margin-bottom: 8px;
+    margin-bottom: 10px; /* Slightly more space below the logo */
   }
 
   .nav-items ul {
@@ -187,9 +166,10 @@
   }
 
   .nav-items li {
-    margin: 8px 0; /* Reduced margin */
+    margin: 10px 0; /* Increased margin for better spacing */
   }
 }
+
 
 .restaurant-container {
   display: grid;
@@ -291,6 +271,33 @@
   }
 }
 
+
+/* Top Rated Section */
+.top-rated {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background with new color combination */
+  padding: 15px 10px; /* Slightly smaller padding */
+  margin: 16px auto; /* Center the section on the page with a bit less space */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for more depth */
+  max-width: 800px;
+  text-align: center;
+  color: #fff; /* White text color for contrast */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Elegant, modern font family */
+  font-size: 1.5rem; /* Slightly smaller font size */
+  font-weight: bold; /* Bold text for emphasis */
+  transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+/* Add a hover effect for interactivity */
+.top-rated:hover {
+  transform: translateY(-5px); /* Slightly move up on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+
 /* Container for buttons */
 .button-container {
   display: flex;
@@ -299,63 +306,49 @@
   margin-bottom: 20px; /* Spacing below the buttons */
 }
 
-/* Styling for the filter button */
-.filter-btn {
-  margin-right: 10px; /* Space between filter and search button */
-  cursor: pointer;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
-  color: #fff;
-  text-transform: uppercase;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s ease, transform 0.3s ease;
+
+/* Centering the search container and its contents */
+.search-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  margin-top: 20px; /* Adjust margin as needed */
 }
 
-.filter-btn:hover {
-  background: linear-gradient(135deg, #feb47b, #ff7e5f);
-  transform: scale(1.05);
-}
-
-.filter-btn:active {
-  background: #e64a19;
-  transform: scale(1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Styling for the search button container */
 .search-btn {
   display: flex;
   align-items: center;
 }
 
-/* Styling for the search input */
 .search-btn input[type="text"] {
-  padding: 10px;
-  font-size: 16px;
+  padding: 12px; /* Increased padding for better size */
+  font-size: 18px; /* Increased font size */
   border: 1px solid #ddd;
-  border-radius: 8px 0 0 8px;
+  border-radius: 10px 0 0 10px; /* Rounded corners */
   outline: none;
+  transition: border-color 0.3s ease;
+  width: 300px; /* Fixed width for input */
 }
 
-/* Styling for the search button */
+.search-btn input[type="text"]:focus {
+  border-color: #ff7e5f; /* Highlight border color on focus */
+}
+
 .search-button {
   background: linear-gradient(135deg, #ff7e5f, #feb47b);
   border: none;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 10px 10px 0; /* Rounded corners */
   color: #fff;
-  font-size: 16px;
-  padding: 10px 20px;
+  font-size: 18px; /* Increased font size */
+  padding: 12px 24px; /* Increased padding for better size */
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
 }
 
 .search-button:hover {
   background: linear-gradient(135deg, #feb47b, #ff7e5f);
   transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced box shadow on hover */
 }
 
 .search-button:active {
@@ -363,6 +356,7 @@
   transform: scale(1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Footer */
 
@@ -1115,6 +1109,7 @@ section p {
 .restaurant-rating {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 /* Rating Stars */
@@ -1126,7 +1121,7 @@ section p {
 
 .star {
   margin-right: 2px;
-  color: #ffd700;
+  color: #ffd700; /* Gold color for stars */
   transition: color 0.3s ease, transform 0.3s ease;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
@@ -1139,23 +1134,33 @@ section p {
 }
 
 .rating:hover .star {
-  color: #ffab00;
-  transform: scale(1.1);
+  color: #ffab00; /* Darker gold on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Full Star */
+.full-star {
+  color: #ffd700;
+}
+
+/* Half Star */
+.half-star {
+  color: #ffd700;
+}
+
+/* Empty Star */
+.empty-star {
+  color: lightgray;
 }
 
 /* Total Rating */
 .restaurant-total-rating {
   margin-left: 15px;
-  font-size: 1.4rem;
-  color: #ff5722;
+  font-size: 1.2rem;
+  color: #333;
   font-weight: 700;
 }
 
-/* Delivery Time */
-.restaurant-delivery-time {
-  font-size: 1.3rem;
-  color: #ff5722;
-}
 
 /* Cuisines */
 .restaurant-cuisines {
@@ -1183,7 +1188,6 @@ section p {
 .offer-subtitle {
   font-size: 1.2rem;
 }
-
 
 /* Carousel Container */
 .carousel-container {
@@ -1292,24 +1296,16 @@ section p {
   box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.3);
 }
 
-
 /* Container for the entire menu */
 .menu-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: #333;
 }
 
 /* Heading for the menu section */
-.menu-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #222;
-}
 
 /* Container for each menu section */
 .menu-section {
@@ -1320,12 +1316,19 @@ section p {
   background-color: #fff;
   transition: box-shadow 0.3s ease;
 }
+.restaurant-delivery-time {
+  color: orange;
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-style: Bold;
+}
 
 .menu-section:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Title of the menu section */
+.category-title,.menu-heading,
 .menu-section-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -1340,6 +1343,29 @@ section p {
 
 .menu-section-title:hover {
   background-color: #e0e0e0;
+}
+
+.menu-heading {
+  background-color: #ff5722;
+  color: whitesmoke;
+  margin-bottom: 20px;
+
+}
+
+.category-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+  color: #444;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-title:hover {
+  background-color: #edc5a8;
 }
 
 /* For toggled state: when expanded */
@@ -1434,7 +1460,6 @@ section p {
   opacity: 0.6;
   font-style: italic;
 }
-
 
 /* Addons Modal Overlay */
 .addons-modal-overlay {
@@ -1552,8 +1577,140 @@ section p {
   }
 }
 
-
 a {
   text-decoration: none;
   color: #333;
+}
+
+
+
+/* Profile */
+
+/* Profile Container */
+.profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Header */
+.profile-header {
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffab00;
+  transition: border 0.3s ease;
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.profile-title {
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Profile Body */
+.profile-body {
+  text-align: left;
+}
+
+.profile-bio {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Profile Contact */
+.profile-contact p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Profile Social Links */
+.profile-social {
+  margin-top: 20px;
+}
+
+.social-link {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link.twitter {
+  background-color: #1da1f2;
+}
+
+.social-link.linkedin {
+  background-color: #0077b5;
+}
+
+.social-link.github {
+  background-color: #333;
+}
+
+.social-link:hover {
+  transform: translateY(-5px);
+  background-color: darken(#333, 10%);
+}
+
+
+
+
+/* CSS for city buttons */
+.city-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.city-buttons button {
+  background-color: #343a40; /* Dark Gray */
+  border: 2px solid #ffc107; /* Gold */
+  color: #ffffff; /* White */
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 8px;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background with new color combination */
+
+}
+
+.city-buttons button:hover {
+  background-color: #343a40 ; /* Gold */
+  color:white; /* Dark Gray */
+  border: 2px solid #343a40; /* Dark Gray */
 }

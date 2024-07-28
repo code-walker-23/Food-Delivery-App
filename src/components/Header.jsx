@@ -38,16 +38,15 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/search">🔍Search</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/top-rated-restaurants">⭐Top Rated</Link>
           </li>
+          <li>🛒Cart</li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/profile">👤Profile</Link>
           </li>
-          <li>Cart</li>
-          <li>Profile</li>
           <button
             className="login-button"
             onClick={() => {
@@ -63,5 +62,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
