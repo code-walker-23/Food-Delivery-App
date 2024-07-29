@@ -1,6 +1,6 @@
 import React from "react";
-import OfflineComponent from "../utils/offlineComponent";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import OfflineComponent from "../../utils/offlineComponent";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
 
 const Profile = () => {
   const onlineStatus = useOnlineStatus();

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { CitiesList } from "../utils/cities"; // Adjust the path if necessary
-import RestaurantCard from "./RestaurantCard"; // Adjust the path if necessary
-import { Shimmer } from "./Shimmer"; // Adjust the path if necessary
+import { CitiesList } from "../../utils/cities"; // Adjust the path if necessary
+import RestaurantCard from "../RestaurantCard"; // Adjust the path if necessary
+import { Shimmer } from "../../utils/Shimmer"; // Adjust the path if necessary
 import { Link } from "react-router-dom";
 
 const CityComponent = () => {

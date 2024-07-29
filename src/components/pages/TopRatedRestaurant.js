@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
-import { Shimmer } from "./Shimmer";
-import { SWIGGY_API } from "../utils/constants";
+import RestaurantCard from "../RestaurantCard";
+import { Shimmer } from "../../utils/Shimmer";
+import { SWIGGY_API } from "../../utils/constants";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import OfflineComponent from "../utils/offlineComponent";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
+import OfflineComponent from "../../utils/offlineComponent";
 
 const TopRatedRestaurant = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -41,7 +41,7 @@ const TopRatedRestaurant = () => {
         <Shimmer />
       ) : (
         <div className="restaurant-container">
-          {filteredRestaurant.map((restaurant,index) => (
+          {filteredRestaurant.map((restaurant, index) => (
             <Link to={`/restaurants/${restaurant.info.id}`}>
               <RestaurantCard key={index} resData={restaurant} />
             </Link>

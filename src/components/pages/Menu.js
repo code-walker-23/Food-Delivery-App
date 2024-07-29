@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Shimmer } from "./Shimmer";
-import { IMAGE_URL } from "../utils/constants";
-import { renderStars } from "./star";
+import { Shimmer } from "../../utils/Shimmer";
+import { IMAGE_URL } from "../../utils/constants";
+import { renderStars } from "../../utils/star";
 import { useParams } from "react-router-dom";
-import useRestaurantMenu from "../utils/useRestaurantMenu";
-import OfflineComponent from "../utils/offlineComponent";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantMenu from "../../hooks/useRestaurantMenu";
+import OfflineComponent from "../../utils/offlineComponent";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
 
 const Menu = () => {
   const [selectedAddons, setSelectedAddons] = useState(null);

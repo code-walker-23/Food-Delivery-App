@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
-import { Shimmer } from "./Shimmer";
+import { Shimmer } from "../utils/Shimmer";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 import {
   SWIGGY_API,
   SWIGGY_API_AGRA,

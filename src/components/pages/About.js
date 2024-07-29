@@ -1,7 +1,7 @@
 import React from "react";
-import UserClass from "./UserClass";
-import OfflineComponent from "../utils/offlineComponent";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import UserClass from "../../utils/UserClass";
+import OfflineComponent from "../../utils/offlineComponent";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
 
 const About = () => {
   const onlineStatus = useOnlineStatus();

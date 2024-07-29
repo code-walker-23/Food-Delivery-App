@@ -2,7 +2,7 @@
 node_modules/
 
 # Ignore .parcel-cache directory inside src
-src/.parcel-cache/
+.parcel-cache/
 
 # Ignore dist directory inside src
-src/dist/
+dist/
