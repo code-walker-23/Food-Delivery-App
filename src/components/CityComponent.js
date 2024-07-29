@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { CitiesList } from "../utils/cities"; // Adjust the path if necessary
 import RestaurantCard from "./RestaurantCard"; // Adjust the path if necessary
 import { Shimmer } from "./Shimmer"; // Adjust the path if necessary
@@ -9,7 +8,6 @@ const CityComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
   const cities = CitiesList();
 
   // Function to normalize strings

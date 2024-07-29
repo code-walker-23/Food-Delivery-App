@@ -13,6 +13,7 @@ import TopRatedRestaurant from "./components/TopRatedRestaurant";
 import Search from "./components/Search";
 import Profile from "./components/Profile";
 import CityComponent from "./components/CityComponent";
+import Grocery from "./components/Grocery";
 
 const AppLayout = () => {
   return (
@@ -40,37 +41,40 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path : "/restaurants/:id",
-        element : <Menu />
-      },{
-        path : "/top-rated-restaurants",
-        element : <TopRatedRestaurant />
-      },{
-        path : "/search",
-        element : <Search />
-      },{
-        path : "/profile",
-        element : <Profile />
-      },{
-        path : "/cities",
-        element : <CityComponent />
-      }
+        path: "/restaurants/:id",
+        element: <Menu />,
+      },
+      {
+        path: "/top-rated-restaurants",
+        element: <TopRatedRestaurant />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/cities",
+        element: <CityComponent />,
+      },
+      {
+        path: "/groceries",
+        element: <Grocery />,
+      },
     ],
-    errorElement: <ErrorPage />
-  }
+    errorElement: <ErrorPage />,
+  },
 ]);
 
-// console.log(appRouter); // it return the object of the router. 
+// console.log(appRouter); // it return the object of the router.
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // root.render(<AppLayout />);
 root.render(<RouterProvider router={appRouter} />);
-
-
-
-
-
 
 /* 
 
@@ -138,9 +142,6 @@ This setup ensures a consistent layout with a header and footer while dynamicall
 
 */
 
-
-
-
 // The process that will tell browser router
 
 // Children routes are the routes that are nested inside the parent route.
@@ -155,15 +156,13 @@ This setup ensures a consistent layout with a header and footer while dynamicall
 
 // BrowserRouter : It is a component that uses the HTML5 history API to keep UI in sync with the URL.
 
-// Route : It is a component that renders some UI when its path matches the current URL.  
+// Route : It is a component that renders some UI when its path matches the current URL.
 
 // Link : It is a component that allows you to navigate to a different URL.
 
 // Outlet : It is a component that is used to render the children routes of the parent route.
 
 // RouterProvider : It is a component that provides the router context to the children components.
-
-
 
 /* 
 

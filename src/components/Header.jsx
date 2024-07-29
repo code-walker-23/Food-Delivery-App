@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   // let btnName = "Login";
@@ -28,6 +29,17 @@ const Header = () => {
     // console.log("Rendered Header");
   }, [btnName]); // it will called only when the btnName is updated.
 
+  const onlineStatus = useOnlineStatus();
+  let statusString = "";
+  let statusSymbol = "";
+  if (onlineStatus) {
+    statusString = "Online";
+    statusSymbol = "🟢";
+  } else {
+    statusString = "Offline";
+    statusSymbol = "🔴";
+  }
+
   return (
     <div className="header">
       <div className="logo-container">
@@ -37,12 +49,17 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li class="online-status">
+            <span class="status-indicator">{statusSymbol}</span>{ statusString}
+          </li>
+
           <li>
             <Link to="/search">🔍Search</Link>
           </li>
           <li>
             <Link to="/top-rated-restaurants">⭐Top Rated</Link>
           </li>
+          <li><Link to="/groceries">🛍️Grocery</Link></li>
           <li>🛒Cart</li>
           <li>
             <Link to="/profile">👤Profile</Link>

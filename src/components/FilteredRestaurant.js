@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import RestaurantCard from "../components/RestaurantCard";
-import { Shimmer } from "../components/Shimmer";
+import RestaurantCard from "./RestaurantCard";
+import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 
 // useState should not declare outside the component function.
