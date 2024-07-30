@@ -11,6 +11,7 @@
   "author": "Vinay Chhabra",
   "license": "ISC",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.12.0",
     "postcss": "^8.4.40",
     "process": "^0.11.10",
@@ -21,6 +22,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "autoprefixer": "^10.4.19",
+    "axios": "^1.7.2",
     "http-proxy-middleware": "^3.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

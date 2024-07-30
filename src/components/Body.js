@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard from "../utils/RestaurantCard";
 import { Shimmer } from "../utils/Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
@@ -46,7 +46,7 @@ const Body = () => {
   return (
     <div className="body">
       <div className="city-buttons">
-        <Link to="/cities">
+        <Link to="/main/cities">
           <button className="city-search-button">Search Cities</button>
         </Link>
         <button onClick={() => setSelectedCityAPI(SWIGGY_API)}>All</button>
@@ -71,7 +71,7 @@ const Body = () => {
       ) : (
         <div className="restaurant-container">
           {listOfRestaurants.map((restaurant, index) => (
-            <Link key={index} to={`/restaurants/${restaurant.info.id}`}>
+            <Link key={index} to={`/main/restaurants/${restaurant.info.id}`}>
               <RestaurantCard resData={restaurant} />
             </Link>
           ))}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import RestaurantCard from "../RestaurantCard";
+import RestaurantCard from "../../utils/RestaurantCard";
 import { Shimmer } from "../../utils/Shimmer";
 import { SWIGGY_API } from "../../utils/constants";
 import { Link } from "react-router-dom";
@@ -42,7 +42,7 @@ const TopRatedRestaurant = () => {
       ) : (
         <div className="restaurant-container">
           {filteredRestaurant.map((restaurant, index) => (
-            <Link to={`/restaurants/${restaurant.info.id}`}>
+            <Link to={`/main/restaurants/${restaurant.info.id}`}>
               <RestaurantCard key={index} resData={restaurant} />
             </Link>
           ))}

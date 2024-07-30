@@ -52,17 +52,20 @@ const Header = () => {
           <li class="online-status">
             <span class="status-indicator">{statusSymbol}</span>{ statusString}
           </li>
+          <li>
+            <Link to="/main/location">🤙Find Me</Link>
+          </li>
 
           <li>
-            <Link to="/search">🔍Search</Link>
+            <Link to="/main/search">🔍Search</Link>
           </li>
           <li>
-            <Link to="/top-rated-restaurants">⭐Top Rated</Link>
+            <Link to="/main/top-rated-restaurants">⭐Top Rated</Link>
           </li>
-          <li><Link to="/groceries">🛍️Grocery</Link></li>
+          <li><Link to="/main/groceries">🛍️Grocery</Link></li>
           <li>🛒Cart</li>
           <li>
-            <Link to="/profile">👤Profile</Link>
+            <Link to="/main/profile">👤Profile</Link>
           </li>
           <button
             className="login-button"

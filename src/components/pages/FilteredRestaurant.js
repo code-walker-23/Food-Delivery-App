@@ -81,7 +81,7 @@ const FilteredRestaurant = () => {
       ) : (
         <div className="restaurant-container">
           {filteredRestaurant.map((restaurant, index) => (
-            <Link to={`/restaurants/${restaurant.info.id}`}>
+            <Link to={`/main/restaurants/${restaurant.info.id}`}>
               <RestaurantCard key={index} resData={restaurant} />
             </Link>
           ))}

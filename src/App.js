@@ -15,7 +15,11 @@ import Profile from "./components/pages/Profile";
 import CityComponent from "./components/pages/CityComponent";
 import { lazy, Suspense } from "react";
 import { Shimmer } from "./utils/Shimmer";
+import LandingPage from "./components/pages/LandingPage";
 // import Grocery from "./components/Grocery";
+import "./styles/custom.css";
+import "./styles/tailwind.css";
+import LocationComponent from "./utils/Location";
 
 const Grocery = lazy(() => import("./components/pages/Grocery"));
 const About = lazy(() => import("./components/pages/About"));
@@ -39,12 +43,18 @@ const AppLayout = () => {
 
 const appRouter = createBrowserRouter([
   {
-    path: "/",
+    path : "/",
+    element : <LandingPage></LandingPage> ,
+    errorElement: <ErrorPage />,
+
+  },
+  {
+    path: "/main",
     element: <AppLayout />,
     children: [
-      { path: "/", element: <Body /> },
+      { path: "/main", element: <Body /> },
       {
-        path: "/about",
+        path: "/main/about",
         element: (
           <Suspense fallback={<Shimmer />}>
             <About />
@@ -52,31 +62,35 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/contact",
+        path: "/main/contact",
         element: <Contact />,
       },
       {
-        path: "/restaurants/:id",
+        path: "/main/restaurants/:id",
         element: <Menu />,
       },
       {
-        path: "/top-rated-restaurants",
+        path: "/main/top-rated-restaurants",
         element: <TopRatedRestaurant />,
       },
       {
-        path: "/search",
+        path: "/main/search",
         element: <Search />,
       },
       {
-        path: "/profile",
+        path: "/main/profile",
         element: <Profile />,
       },
       {
-        path: "/cities",
+        path: "/main/cities",
         element: <CityComponent />,
       },
       {
-        path: "/groceries",
+        path: "/main/location",
+        element: <LocationComponent />,
+      },
+      {
+        path: "/main/groceries",
         element: (
           <Suspense fallback={<Shimmer />}>
             <Grocery />
