@@ -43,18 +43,17 @@ const AppLayout = () => {
 
 const appRouter = createBrowserRouter([
   {
-    path : "/",
-    element : <LandingPage></LandingPage> ,
+    path: "/",
+    element: <LandingPage />,
     errorElement: <ErrorPage />,
-
   },
   {
     path: "/main",
     element: <AppLayout />,
     children: [
-      { path: "/main", element: <Body /> },
+      { path: "", element: <Body /> }, // Default child route
       {
-        path: "/main/about",
+        path: "about",
         element: (
           <Suspense fallback={<Shimmer />}>
             <About />
@@ -62,35 +61,35 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/main/contact",
+        path: "contact",
         element: <Contact />,
       },
       {
-        path: "/main/restaurants/:id",
+        path: "restaurants/:id",
         element: <Menu />,
       },
       {
-        path: "/main/top-rated-restaurants",
+        path: "top-rated-restaurants",
         element: <TopRatedRestaurant />,
       },
       {
-        path: "/main/search",
+        path: "search",
         element: <Search />,
       },
       {
-        path: "/main/profile",
+        path: "profile",
         element: <Profile />,
       },
       {
-        path: "/main/cities",
+        path: "cities",
         element: <CityComponent />,
       },
       {
-        path: "/main/location",
+        path: "location",
         element: <LocationComponent />,
       },
       {
-        path: "/main/groceries",
+        path: "groceries",
         element: (
           <Suspense fallback={<Shimmer />}>
             <Grocery />
