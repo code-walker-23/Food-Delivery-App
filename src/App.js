@@ -42,12 +42,12 @@ const AppLayout = () => {
 };
 
 const appRouter = createBrowserRouter([
-  // {
-  //   path : "/",
-  //   element : <LandingPage></LandingPage> ,
-  //   errorElement: <ErrorPage />,
+  {
+    path : "/",
+    element : <LandingPage></LandingPage> ,
+    errorElement: <ErrorPage />,
 
-  // },
+  },
   {
     path: "/main",
     element: <AppLayout />,
