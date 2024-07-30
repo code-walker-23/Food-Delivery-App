@@ -45,61 +45,60 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/main",
+    element: <AppLayout />,
     children: [
+      { path: "", element: <Body /> }, // Default child route
       {
-        path: "main",
-        element: <AppLayout />,
-        children: [
-          { path: "", element: <Body /> }, // Default child route
-          {
-            path: "about",
-            element: (
-              <Suspense fallback={<Shimmer />}>
-                <About />
-              </Suspense>
-            ),
-          },
-          {
-            path: "contact",
-            element: <Contact />,
-          },
-          {
-            path: "restaurants/:id",
-            element: <Menu />,
-          },
-          {
-            path: "top-rated-restaurants",
-            element: <TopRatedRestaurant />,
-          },
-          {
-            path: "search",
-            element: <Search />,
-          },
-          {
-            path: "profile",
-            element: <Profile />,
-          },
-          {
-            path: "cities",
-            element: <CityComponent />,
-          },
-          {
-            path: "location",
-            element: <LocationComponent />,
-          },
-          {
-            path: "groceries",
-            element: (
-              <Suspense fallback={<Shimmer />}>
-                <Grocery />
-              </Suspense>
-            ),
-          },
-        ],
-      }
+        path: "about",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "restaurants/:id",
+        element: <Menu />,
+      },
+      {
+        path: "top-rated-restaurants",
+        element: <TopRatedRestaurant />,
+      },
+      {
+        path: "search",
+        element: <Search />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "cities",
+        element: <CityComponent />,
+      },
+      {
+        path: "location",
+        element: <LocationComponent />,
+      },
+      {
+        path: "groceries",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
     ],
     errorElement: <ErrorPage />,
-  }
+  },
 ]);
 
 // console.log(appRouter); // it return the object of the router.
