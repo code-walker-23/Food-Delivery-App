@@ -9,12 +9,12 @@ class About extends Component {
     console.log("Parent Constructor Called");
   }
 
-  componentDidMount(){
+  componentDidMount() {
     console.log("Parent ComponentDidMount Called");
-  };
+  }
 
   render() {
-    console.log("Parent render called")
+    console.log("Parent render called");
     return (
       <div className="about-container">
         <header className="about-header">
@@ -81,6 +81,7 @@ class About extends Component {
                 name="John Doe"
                 designation={"Founder & CEO"}
                 image={"team-member1.jpg"}
+                type={"A"}
               />
             }
             {
@@ -88,6 +89,7 @@ class About extends Component {
                 name="Jane Smith"
                 designation={"Head Chef"}
                 image={"team-member2.jpg"}
+                type={"B"}
               />
             }
 
@@ -96,12 +98,14 @@ class About extends Component {
                 name="Emily Johnson"
                 designation={"Marketing Director"}
                 image={"team-member3.jpg"}
+                type={"c"}
               />
             }
             <UserClass
               name="Emily Parkenson"
               designation={"Marketing Director"}
               image={"team-member3.jpg"}
+              type={"D"}
             />
           </div>
         </section>
@@ -230,7 +234,6 @@ import UserClass fromUserClass";
 export default About;
  */
 
-
 /* 
 
 Life Cycle of the Class based component:
@@ -238,7 +241,7 @@ Life Cycle of the Class based component:
 lifecycle of parent class component and children class component:
 1. It will call contructor of parent class component.
 2. it will call the render method
-3. if we are using a child component inside render method,it will first trigger the lifecycle of the child component and then come to the aprent component.
+3. if we are using a child component inside render method,it will first trigger the lifecycle of the child component and then come to the parent component.
 4. first child componentDidMount(it will execute after the component has been rendered or loaded or mounted onto the web page ) will be called and then parent componentDidMount is called.
 
 */

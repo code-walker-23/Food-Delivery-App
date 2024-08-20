@@ -1,4 +1,4 @@
-import { renderStars } from "./Star";
+import { Star } from "./star";
 import { IMAGE_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
@@ -30,7 +30,7 @@ const RestaurantCard = (props) => {
       </div>
       <div className="restaurant-details">
         <h3 className="res-name">{name}</h3>
-        <h4 className="res-rating">{renderStars(avgRating)}</h4>
+        <h4 className="res-rating">{Star(avgRating)}</h4>
         <h4 className="res-delivery-time">Delivery in {deliveryTime} mins</h4>
         <h4 className="res-cuisines">{cuisines.join(", ")}</h4>
         <h4 className="res-cost-for-two">{costForTwo}</h4>

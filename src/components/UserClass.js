@@ -14,7 +14,7 @@ class UserClass extends Component {
 
   componentDidMount() {
     // component did mount is called after the render method. That's why we make Api calls in this method.
-    console.log("Child componentDidMount");
+    console.log("Child componentDidMount" + this.props.type);
   }
 
   render() {

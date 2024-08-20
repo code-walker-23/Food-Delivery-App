@@ -35039,7 +35039,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _star = require("./Star");
+var _star = require("./star");
 var _constants = require("../utils/constants");
 const RestaurantCard = (props)=>{
     const { resData } = props;
@@ -35079,7 +35079,7 @@ const RestaurantCard = (props)=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                         className: "res-rating",
-                        children: (0, _star.renderStars)(avgRating)
+                        children: (0, _star.Star)(avgRating)
                     }, void 0, false, {
                         fileName: "components/RestaurantCard.js",
                         lineNumber: 33,
@@ -35144,20 +35144,30 @@ $RefreshReg$(_c, "RestaurantCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"625zy","./Star":"7jHmP","../utils/constants":"iix0N","@parcel/transformer-js/src/esmodule-helpers.js":"fgQw0","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8XnCz"}],"7jHmP":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$dce9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"625zy","../utils/constants":"iix0N","@parcel/transformer-js/src/esmodule-helpers.js":"fgQw0","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8XnCz","./star":"4Vs9I"}],"iix0N":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "IMAGE_URL", ()=>IMAGE_URL);
+parcelHelpers.export(exports, "COROUSEL_IMAGES", ()=>COROUSEL_IMAGES);
+parcelHelpers.export(exports, "MENU_API", ()=>MENU_API);
+const IMAGE_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+const COROUSEL_IMAGES = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/";
+const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fgQw0"}],"4Vs9I":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1d94 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$dce9.prelude(module);
+$parcel$ReactRefreshHelpers$1d94.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "renderStars", ()=>renderStars);
+parcelHelpers.export(exports, "Star", ()=>Star);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
-const renderStars = (rating)=>{
+const Star = (rating)=>{
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 >= 0.5;
     const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
@@ -35170,7 +35180,7 @@ const renderStars = (rating)=>{
                     icon: (0, _freeSolidSvgIcons.faStar),
                     className: "star full-star"
                 }, `full-${index}`, false, {
-                    fileName: "components/Star.js",
+                    fileName: "components/star.js",
                     lineNumber: 12,
                     columnNumber: 9
                 }, undefined)),
@@ -35178,7 +35188,7 @@ const renderStars = (rating)=>{
                 icon: (0, _freeSolidSvgIcons.faStarHalfAlt),
                 className: "star half-star"
             }, void 0, false, {
-                fileName: "components/Star.js",
+                fileName: "components/star.js",
                 lineNumber: 14,
                 columnNumber: 20
             }, undefined),
@@ -35188,7 +35198,7 @@ const renderStars = (rating)=>{
                     icon: (0, _freeSolidSvgIcons.faStar),
                     className: "star empty-star"
                 }, `empty-${index}`, false, {
-                    fileName: "components/Star.js",
+                    fileName: "components/star.js",
                     lineNumber: 16,
                     columnNumber: 9
                 }, undefined)),
@@ -35196,19 +35206,22 @@ const renderStars = (rating)=>{
                 className: "rating-value",
                 children: rating.toFixed(1)
             }, void 0, false, {
-                fileName: "components/Star.js",
+                fileName: "components/star.js",
                 lineNumber: 18,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
-        fileName: "components/Star.js",
+        fileName: "components/star.js",
         lineNumber: 10,
         columnNumber: 5
     }, undefined);
 };
+_c = Star;
+var _c;
+$RefreshReg$(_c, "Star");
 
-  $parcel$ReactRefreshHelpers$dce9.postlude(module);
+  $parcel$ReactRefreshHelpers$1d94.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -60670,16 +60683,6 @@ var icons = {
     faLevelUpAlt
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fgQw0"}],"iix0N":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "IMAGE_URL", ()=>IMAGE_URL);
-parcelHelpers.export(exports, "COROUSEL_IMAGES", ()=>COROUSEL_IMAGES);
-parcelHelpers.export(exports, "MENU_API", ()=>MENU_API);
-const IMAGE_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-const COROUSEL_IMAGES = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/";
-const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=";
-
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"fgQw0"}],"6a0mH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f92d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
@@ -61931,7 +61934,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _shimmer = require("./Shimmer");
 var _constants = require("../utils/constants");
-var _star = require("./Star");
+var _star = require("./star");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const Menu = ()=>{
@@ -62016,7 +62019,7 @@ const Menu = ()=>{
                                         className: "restaurant-rating",
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "star-rating",
-                                            children: (0, _star.renderStars)(avgRating)
+                                            children: (0, _star.Star)(avgRating)
                                         }, void 0, false, {
                                             fileName: "components/Menu.js",
                                             lineNumber: 73,
@@ -62367,6 +62370,6 @@ $RefreshReg$(_c, "Menu");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"625zy","react":"auEPL","./Shimmer":"6a0mH","../utils/constants":"iix0N","./Star":"7jHmP","react-router-dom":"iOaiP","@parcel/transformer-js/src/esmodule-helpers.js":"fgQw0","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8XnCz"}]},["lAOLO","jUbg4","2Ew96"], "2Ew96", "parcelRequiref8d7")
+},{"react/jsx-dev-runtime":"625zy","react":"auEPL","./Shimmer":"6a0mH","../utils/constants":"iix0N","react-router-dom":"iOaiP","@parcel/transformer-js/src/esmodule-helpers.js":"fgQw0","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8XnCz","./star":"4Vs9I"}]},["lAOLO","jUbg4","2Ew96"], "2Ew96", "parcelRequiref8d7")
 
 //# sourceMappingURL=index.7826abd7.js.map

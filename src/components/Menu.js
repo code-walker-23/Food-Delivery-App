@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Shimmer } from "./Shimmer";
 import { IMAGE_URL } from "../utils/constants";
-import { renderStars } from "./Star";
+import { Star } from "./star";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constants";
 
@@ -70,7 +70,7 @@ const Menu = () => {
           <h4 className="restaurant-area">{areaName}</h4>
           <div className="rating-and-delivery">
             <div className="restaurant-rating">
-              <div className="star-rating">{renderStars(avgRating)}</div>
+              <div className="star-rating">{Star(avgRating)}</div>
             </div>
             <h4 className="restaurant-delivery-time">
               Delivery in {deliveryTime} mins
