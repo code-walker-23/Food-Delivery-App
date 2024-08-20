@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const Header = () => {
   // let btnName = "Login";
@@ -28,6 +29,17 @@ const Header = () => {
     // console.log("Rendered Header");
   }, [btnName]); // it will called only when the btnName is updated.
 
+  const onlineStatus = useOnlineStatus();
+  let statusString = "";
+  let statusSymbol = "";
+  if (onlineStatus) {
+    statusString = "Online";
+    statusSymbol = "🟢";
+  } else {
+    statusString = "Offline";
+    statusSymbol = "🔴";
+  }
+
   return (
     <div className="header">
       <div className="logo-container">
@@ -37,17 +49,24 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>
-            <Link to="/">Home</Link>
+          <li class="online-status">
+            <span class="status-indicator">{statusSymbol}</span>{ statusString}
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/main/location">🤙Find Me</Link>
+          </li>
+
+          <li>
+            <Link to="/main/search">🔍Search</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/main/top-rated-restaurants">⭐Top Rated</Link>
           </li>
-          <li>Cart</li>
-          <li>Profile</li>
+          <li><Link to="/main/groceries">🛍️Grocery</Link></li>
+          <li>🛒Cart</li>
+          <li>
+            <Link to="/main/profile">👤Profile</Link>
+          </li>
           <button
             className="login-button"
             onClick={() => {
@@ -63,38 +82,3 @@ const Header = () => {
 };
 
 export default Header;
-
-/* 
-
-
-when setBtnName is called it will re render the whole UI again. and create a new variable btnName that's wht it's work even if it's const.
-
-when the button is clicked, the button name should change to Logout and it will re render the whole header again and when it compare it with the previous virtual dom it will find the difference only in div where the button is placed and it will update only that part of the UI not load different parts of header except the button.
-
-That's why it is reconcilation and differntial rendering.
-
-useEffect is called whenever our component is rendered and it will run the function inside it.
-
-useEffect is called after the first render and after every update.
-
-useEffect takes two arguments first is the function that we want to run and the second is the array of dependencies.
-
-array of dependencies is the list of variables that useEffect depends on.
-
-if we pass an empty array of dependencies then it will run only once after the first render.
-
-if we pass a variable in the array of dependencies then it will run whenever that variable is updated.
-
-if we pass multiple variables in the array of dependencies then it will run whenever any of the variables is updated.
-
-useEffect is used to run the side effects in the function component.
-
-1. If there dependency array is not present then useEffect is called on every render as eg. login/logout button.
-
-2. If there is an empty array of dependencies then useEffect is called only once after the first render.
-
-
-
-
-
-*/

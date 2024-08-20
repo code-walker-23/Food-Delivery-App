@@ -1,3 +1,14 @@
+<<<<<<< HEAD
 node_modules/
 dist/
 .parcel-cache/
+=======
+# Ignore node_modules directory
+node_modules/
+
+# Ignore .parcel-cache directory inside src
+.parcel-cache/
+
+# Ignore dist directory inside src
+dist/
+>>>>>>> ee90e66169b69f7fbe74adb1b2a38a6c69fb0809

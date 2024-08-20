@@ -1,92 +1,86 @@
+# Food Delivery App
 
-# Parcel
+This is a React-based food delivery application that displays restaurant information, menus, and allows users to search for restaurants. The app is deployed on Vercel and can be accessed [here](https://food-delivery-app-pi-sable.vercel.app/).
 
-- Dev Build
-- Local Server
-- HMR = Hot Module Replacement
-- File Watching Algorithm - written in C++
-- Caching - Faster Builds
-- Image Optimization
-- Minification
-- Bundling
-- Compress
-- Consistent Hashing
-- Code Splitting
-- Differential Bundling - support older browsers
-- Diagnostic
-- Error Handling
-- HTTPs
-- Tree Shaking - remove unused code
-- Different dev and prod bundles
+## Features
 
- Food
+- Display restaurant information including name, city, area, rating, and delivery time.
+- Display restaurant menu with categories, item descriptions, images, and prices.
+- Add items to the cart and view add-ons.
+- Search for restaurants.
+- Carousel display for menu items.
+- Attractive and responsive UI design.
+- Fetches live data from Swiggy's API.
 
-/\*\*
+## Installation
 
-- Header
-- - Logo
-- - Nav Items
-- Body
-- - Search
-- - RestaurantContainer
-- - RestaurantCard
--      - Img
--      - Name of Res, Star Rating, cuisine, delery tie
-- Footer
-- - Copyright
-- - Links
-- - Address
-- - Contact
-    \*/
+To run the project locally, follow these steps:
 
-Two types of Export/Import
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/code-walker-23/Food-Delivery-App.git
+    cd Food-Delivery-App
+    ```
 
-- Default Export/Import
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-export default Component;
-import Component from "path";
+3. Start the development server:
+    ```bash
+    npm start
+    ```
 
-- Named Export/Import
+4. Open your browser and navigate to `http://localhost:3000`.
 
-export const Component;
-import {Component} from "path";
+## Running the App
 
-# React Hooks
+You can also access the deployed app [here](https://food-delivery-app-pi-sable.vercel.app/). Please ensure you have the CORS Unblocker extension installed and enabled in your browser for the app to function correctly. This is necessary because the app fetches live data from Swiggy's API, which has CORS restrictions.
 
-(Normal JS utility functions)
+## Project Structure
 
-- useState() - Superpowerful State Variables in react
-- useEffect()
+- `src/`: Contains the source code for the application.
+  - `components/`: Contains the React components.
+  - `pages/`: Contains the different page components (e.g., Home, About, Contact).
+  - `styles/`: Contains CSS files for styling the components.
+  - `App.js`: Main app component.
+  - `index.js`: Entry point of the application.
+- `public/`: Contains static assets and the `index.html` file.
 
-# 2 types Routing in web apps
+## Dependencies
 
-- Client Side Routing
-- Server Side Routing
+- React
+- React DOM
+- Parcel
+- Additional dependencies can be found in the `package.json` file.
 
-# Redux Toolkit
+## Contributing
 
-- Install @reduxjs/toolkit and react-redux
-- Build our store
-- Connect our store to our app
-- Slice (cartSlice)
-- dispatch(action)
-- Selector
+If you'd like to contribute to this project, please follow these steps:
 
-# Types of testing (devloper)
+1. Fork the repository.
+2. Create a new branch:
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+3. Make your changes.
+4. Commit your changes:
+    ```bash
+    git commit -m 'Add some feature'
+    ```
+5. Push to the branch:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+6. Create a new pull request.
 
-- Unit Testing
-- Integration Testing
-- End to End Testing - e2e testing
+## License
 
-# Setting up Testing in our app
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-- Install React Testing Library
-- Installed jest
-- Installed Babel dependencies
-- Configure Babel
-- Configure Parcel Config file to disable default babel transpilation
-- Jest - npx jest --init
-- Install jsdom library
-- Install @babel/preset-react - to make JSX work in test cases
-- Include @babel/preset-react inside my babel config
-- npm i -D @testing-library/jest-dom
+## Author
+
+Vinay Chhabra
+
+GitHub: [code-walker-23](https://github.com/code-walker-23)
